@@ -4,10 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#300811">
-  <meta name="description" content="Alankrita Mehndi Art — Luxury bridal mehndi, Arabic designs, Indian styles and beautiful henna artistry.">
+  <meta name="description" content="Alankrita Mehndi Art — luxury bridal mehndi, Arabic, Indian and mandala designs.">
   <title>Alankrita Mehndi Art | Luxury Mehndi</title>
   <link rel="stylesheet" href="style.css">
-
   <style>
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
@@ -83,13 +82,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(
-        90deg,
-        rgba(35, 4, 11, .94) 0%,
-        rgba(35, 4, 11, .78) 34%,
-        rgba(35, 4, 11, .22) 72%,
-        rgba(35, 4, 11, .12) 100%
-      );
+      background: linear-gradient(90deg, #23040bef 0%, #23040bc7 38%, #23040b38 100%);
     }
     .lux-hero-content {
       position: relative;
@@ -109,7 +102,7 @@
       max-width: 540px;
       margin: 18px 0;
       color: #f5d99c;
-      font-family: Georgia, "Times New Roman", serif;
+      font-family: Georgia, serif;
       font-size: clamp(42px, 6vw, 76px);
       font-weight: normal;
       line-height: 1.08;
@@ -118,10 +111,7 @@
       color: #fff1d6;
       font-weight: normal;
     }
-    .lux-hero p {
-      max-width: 400px;
-      line-height: 1.8;
-    }
+    .lux-hero p { max-width: 400px; line-height: 1.8; }
     .lux-btn {
       display: inline-block;
       margin: 14px 8px 0 0;
@@ -215,16 +205,22 @@
       line-height: 1.9;
     }
     .lux-instagram {
-      padding: 45px 20px;
-      background: linear-gradient(135deg, #4b101c, #260710);
+      padding: 48px 20px;
+      background: radial-gradient(ellipse at top, #722336, #260710 75%);
       color: #fff1d6;
       text-align: center;
+      border-top: 1px solid #caa65a;
+      border-bottom: 1px solid #caa65a;
     }
     .lux-instagram h2 {
       color: #f4d99b;
       font-family: Georgia, serif;
       font-weight: normal;
-      font-size: 34px;
+      font-size: clamp(30px, 4vw, 40px);
+    }
+    .lux-insta-icon {
+      font-size: 42px;
+      margin: 10px;
     }
     .lux-footer {
       padding: 30px 15px;
@@ -241,7 +237,7 @@
       }
       .lux-hero { min-height: 540px; }
       .lux-hero::after {
-        background: linear-gradient(90deg, #23040bea, #23040b99 65%, #23040b40);
+        background: linear-gradient(90deg, #23040bef, #23040b99 65%, #23040b40);
       }
     }
     @media (max-width: 520px) {
@@ -254,12 +250,15 @@
       .lux-hero-content { padding: 45px 20px; }
       .lux-hero h1 { font-size: 44px; }
       .lux-services, .lux-gallery { grid-template-columns: 1fr; }
-      .lux-card img, .lux-gallery img { height: auto; max-height: 460px; object-fit: contain; }
+      .lux-card img, .lux-gallery img {
+        height: auto;
+        max-height: 460px;
+        object-fit: contain;
+      }
       .lux-section { padding: 38px 16px; }
     }
   </style>
 </head>
-
 <body>
   <header class="lux-header">
     <nav class="lux-nav">
@@ -272,11 +271,11 @@
         <a href="#prices">Prices</a>
         <a href="gallery.html">Gallery</a>
         <a href="#about">About</a>
+        <a href="#instagram">Instagram</a>
         <a href="#contact">Contact</a>
       </div>
     </nav>
   </header>
-
   <main>
     <section class="lux-hero" id="home">
       <img class="lux-hero-image"
@@ -284,7 +283,7 @@
            alt="Luxury mehndi artistry with intricate henna designs"
            fetchpriority="high">
       <div class="lux-hero-content">
-        <div class="lux-eyebrow">Tradition &nbsp; ✦ &nbsp; Art &nbsp; ✦ &nbsp; Elegance</div>
+        <div class="lux-eyebrow">Tradition ✦ Art ✦ Elegance</div>
         <h1>Beautiful<br><em>Mehndi Art</em></h1>
         <h2 style="font-family:Georgia,serif;font-weight:normal;color:#fff1d6;">
           For Your Special Moments
@@ -292,14 +291,12 @@
         <p>Traditional designs, modern styles and custom creations — crafted with love and care.</p>
         <a class="lux-btn"
            href="https://wa.me/919129824138?text=Hello%20Alankrita%20Mehndi%20Art%2C%20I%20would%20like%20to%20book%20a%20mehndi%20appointment."
-           target="_blank" rel="noopener">☏ Book on WhatsApp →</a>
+           target="_blank" rel="noopener">Book on WhatsApp →</a>
       </div>
     </section>
-
     <section class="lux-section" id="prices">
       <h2>Our Signature Services</h2>
-      <p class="lux-subtitle">Explore our favourite styles, crafted for weddings, celebrations and unforgettable moments.</p>
-
+      <p class="lux-subtitle">Explore our favourite styles for weddings, celebrations and unforgettable moments.</p>
       <div class="lux-services">
         <article class="lux-card">
           <img src="Bridal.style.JPG" alt="Bridal mehndi design" loading="lazy">
@@ -310,7 +307,6 @@
             <a class="lux-btn" href="https://wa.me/919129824138?text=I%20am%20interested%20in%20Bridal%20Mehndi." target="_blank" rel="noopener">Enquire</a>
           </div>
         </article>
-
         <article class="lux-card">
           <img src="Arabic.style.JPG" alt="Arabic style mehndi" loading="lazy">
           <div class="lux-card-content">
@@ -320,7 +316,6 @@
             <a class="lux-btn" href="https://wa.me/919129824138?text=I%20am%20interested%20in%20Arabic%20Style%20Mehndi." target="_blank" rel="noopener">Enquire</a>
           </div>
         </article>
-
         <article class="lux-card">
           <img src="Indian.style.JPG" alt="Indian style mehndi" loading="lazy">
           <div class="lux-card-content">
@@ -330,7 +325,6 @@
             <a class="lux-btn" href="https://wa.me/919129824138?text=I%20am%20interested%20in%20Indian%20Style%20Mehndi." target="_blank" rel="noopener">Enquire</a>
           </div>
         </article>
-
         <article class="lux-card">
           <img src="Mandala.style.JPG" alt="Mandala mehndi design" loading="lazy">
           <div class="lux-card-content">
@@ -340,19 +334,17 @@
             <a class="lux-btn" href="https://wa.me/919129824138?text=I%20am%20interested%20in%20Mandala%20Mehndi." target="_blank" rel="noopener">Enquire</a>
           </div>
         </article>
-
         <article class="lux-card">
           <img src="Premium.bridal.style.JPG" alt="Premium bridal mehndi" loading="lazy">
           <div class="lux-card-content">
             <h3>Premium Bridal</h3>
-            <p>Luxurious artistry for your most memorable day.</p>
+            <p>Luxurious artistry for your memorable day.</p>
             <div class="lux-price">Starting ₹5,100</div>
             <a class="lux-btn" href="https://wa.me/919129824138?text=I%20am%20interested%20in%20Premium%20Bridal%20Mehndi." target="_blank" rel="noopener">Enquire</a>
           </div>
         </article>
       </div>
     </section>
-
     <section class="lux-section" id="gallery">
       <h2>A Glimpse of Our Art</h2>
       <p class="lux-subtitle">Every pattern tells a story. Explore our mehndi creations.</p>
@@ -365,7 +357,6 @@
       </div>
       <a class="lux-btn" href="gallery.html">Explore Full Gallery →</a>
     </section>
-
     <section class="lux-section" id="about">
       <h2>Artistry with Elegance</h2>
       <p class="lux-about">
@@ -375,25 +366,25 @@
         your special moments memorable.
       </p>
     </section>
-
-    <section class="lux-instagram">
-      <h2>Follow Our Creative Journey</h2>
-      <p>Discover more designs, inspiration and our latest work on Instagram.</p>
-      <p><strong>Add your Instagram profile link here next.</strong></p>
-      <a class="lux-btn" href="https://www.instagram.com/" target="_blank" rel="noopener">Find Us on Instagram ↗</a>
+    <section class="lux-instagram" id="instagram">
+      <div class="lux-insta-icon" aria-hidden="true">◎</div>
+      <h2>Follow Us on Instagram</h2>
+      <p>Discover more mehndi designs, bridal inspiration and our latest work.</p>
+      <a class="lux-btn"
+         href="https://www.instagram.com/balaji_mehandi_art_banglore/"
+         target="_blank" rel="noopener">Visit Our Instagram ↗</a>
     </section>
-
     <section class="lux-section" id="contact">
       <h2>Let’s Create Something Beautiful</h2>
       <p class="lux-subtitle">For bookings, availability and design enquiries, message us directly.</p>
       <a class="lux-btn" href="https://wa.me/919129824138?text=Hello%20Alankrita%20Mehndi%20Art%2C%20I%20would%20like%20to%20enquire%20about%20a%20booking." target="_blank" rel="noopener">Book Your Appointment</a>
     </section>
   </main>
-
   <footer class="lux-footer">
     <strong>Alankrita Mehndi Art</strong>
     <p>Artistry with elegance. Beauty in every detail.</p>
     <p><a href="https://wa.me/919129824138">WhatsApp: +91 91298 24138</a></p>
+    <p><a href="https://www.instagram.com/balaji_mehandi_art_banglore/" target="_blank" rel="noopener">Instagram: @balaji_mehandi_art_banglore</a></p>
     <p>© 2026 Alankrita Mehndi Art</p>
   </footer>
 </body>
