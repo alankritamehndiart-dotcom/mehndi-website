@@ -2,226 +2,399 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#4b101c">
-  <meta name="description" content="Alankrita Mehndi Art — Luxury bridal, Arabic, Indian and mandala mehndi designs. Contact us on WhatsApp for bookings.">
-  <title>Alankrita Mehndi Art | Luxury Mehndi Designs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#300811">
+  <meta name="description" content="Alankrita Mehndi Art — Luxury bridal mehndi, Arabic designs, Indian styles and beautiful henna artistry.">
+  <title>Alankrita Mehndi Art | Luxury Mehndi</title>
   <link rel="stylesheet" href="style.css">
+
   <style>
-    .luxury-intro {
-      text-align: center;
-      padding: 38px 18px;
-      background: linear-gradient(135deg, #4b101c, #771f32, #3a0b15);
-      color: #fff4df;
-      border-radius: 18px;
-      margin: 18px auto;
-      box-shadow: 0 12px 28px #3b101c35;
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: #fff9ef;
+      color: #3d1b20;
+      font-family: Arial, sans-serif;
     }
-    .luxury-intro img {
-      width: 115px;
-      height: 115px;
-      object-fit: contain;
-      border-radius: 50%;
-      background: #fff7e9;
-      padding: 8px;
-      margin-bottom: 14px;
+    .lux-header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: #300811;
+      border-bottom: 1px solid #caa65a;
     }
-    .luxury-intro h1 {
+    .lux-nav {
+      max-width: 1200px;
+      margin: auto;
+      padding: 12px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .lux-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #f4d99b;
+      text-decoration: none;
       font-family: Georgia, serif;
-      font-size: clamp(30px, 7vw, 54px);
-      margin: 8px 0 14px;
-      color: #f3d18b;
+      font-size: 21px;
     }
-    .luxury-intro p {
-      max-width: 620px;
-      margin: 10px auto;
+    .lux-brand img {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+      background: #fff9ef;
+      border-radius: 50%;
+    }
+    .lux-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: center;
+    }
+    .lux-links a {
+      color: #fff3df;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    .lux-links a:hover { color: #f4d99b; }
+    .lux-hero {
+      position: relative;
+      min-height: 580px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background: #28070e;
+      color: #fff3df;
+    }
+    .lux-hero-image {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+    .lux-hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        90deg,
+        rgba(35, 4, 11, .94) 0%,
+        rgba(35, 4, 11, .78) 34%,
+        rgba(35, 4, 11, .22) 72%,
+        rgba(35, 4, 11, .12) 100%
+      );
+    }
+    .lux-hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 1200px;
+      width: 100%;
+      margin: auto;
+      padding: 65px 6%;
+    }
+    .lux-eyebrow {
+      color: #e4c477;
+      letter-spacing: 4px;
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+    .lux-hero h1 {
+      max-width: 540px;
+      margin: 18px 0;
+      color: #f5d99c;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(42px, 6vw, 76px);
+      font-weight: normal;
+      line-height: 1.08;
+    }
+    .lux-hero h1 em {
+      color: #fff1d6;
+      font-weight: normal;
+    }
+    .lux-hero p {
+      max-width: 400px;
       line-height: 1.8;
     }
-    .luxury-button {
+    .lux-btn {
       display: inline-block;
-      background: linear-gradient(135deg, #f6dfa7, #c79a48);
-      color: #42101a;
-      text-decoration: none;
+      margin: 14px 8px 0 0;
       padding: 13px 22px;
-      margin: 12px 6px 0;
+      border: 1px solid #f2d28a;
       border-radius: 30px;
+      background: linear-gradient(135deg, #f8e5ad, #c69a43);
+      color: #361019;
+      text-decoration: none;
       font-weight: bold;
-      box-shadow: 0 5px 14px #0003;
+      box-shadow: 0 7px 20px #0004;
+      transition: transform .25s;
     }
-    .luxury-section {
-      padding: 28px 12px;
+    .lux-btn:hover { transform: translateY(-3px); }
+    .lux-section {
+      max-width: 1200px;
+      margin: auto;
+      padding: 55px 20px;
       text-align: center;
+      scroll-margin-top: 85px;
     }
-    .luxury-section h2 {
-      color: #741e30;
+    .lux-section h2 {
+      color: #541321;
       font-family: Georgia, serif;
-      font-size: clamp(25px, 5vw, 36px);
+      font-weight: normal;
+      font-size: clamp(30px, 4vw, 43px);
+      margin: 0 0 12px;
     }
-    .luxury-grid {
+    .lux-subtitle {
+      max-width: 650px;
+      margin: 0 auto 28px;
+      line-height: 1.8;
+    }
+    .lux-services {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr));
-      gap: 18px;
-      max-width: 1050px;
-      margin: 24px auto;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+      margin-top: 30px;
     }
-    .luxury-card {
-      background: linear-gradient(145deg, #fffdf8, #f4e7d6);
-      border: 1px solid #d9b76f;
-      border-radius: 17px;
-      padding: 23px 16px;
-      box-shadow: 0 8px 20px #4b101c12;
+    .lux-card {
+      overflow: hidden;
+      border: 1px solid #d6b56d;
+      border-radius: 16px;
+      background: linear-gradient(145deg, #fffdf7, #f4e5ce);
+      box-shadow: 0 10px 25px #4b101c13;
       transition: transform .25s, box-shadow .25s;
     }
-    .luxury-card:hover {
+    .lux-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 14px 28px #4b101c25;
+      box-shadow: 0 17px 30px #4b101c20;
     }
-    .luxury-card h3 {
-      color: #68192a;
-      font-family: Georgia, serif;
-    }
-    .luxury-price {
-      font-size: 23px;
-      font-weight: bold;
-      color: #a47727;
-    }
-    .luxury-card p {
-      line-height: 1.7;
-    }
-    .luxury-gallery-link {
+    .lux-card img {
       display: block;
-      text-decoration: none;
-      color: #68192a;
-      background: #f7eddd;
-      border: 1px solid #d9b76f;
-      border-radius: 15px;
-      padding: 25px 12px;
-      font-weight: bold;
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      background: #f1dfc1;
     }
-    .luxury-about {
-      max-width: 800px;
-      margin: 15px auto;
+    .lux-card-content { padding: 18px; }
+    .lux-card h3 {
+      margin: 6px 0;
+      color: #541321;
+      font-family: Georgia, serif;
+      font-size: 23px;
+    }
+    .lux-card p { line-height: 1.7; }
+    .lux-price {
+      color: #946c24;
+      font-weight: bold;
+      font-size: 21px;
+      margin: 12px 0;
+    }
+    .lux-gallery {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .lux-gallery img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border: 1px solid #caa65a;
+      border-radius: 14px;
+      box-shadow: 0 9px 22px #30081120;
+      transition: transform .25s;
+    }
+    .lux-gallery img:hover { transform: scale(1.025); }
+    .lux-about {
+      max-width: 760px;
+      margin: 20px auto;
       line-height: 1.9;
     }
-    .luxury-footer {
-      background: #3b0b15;
+    .lux-instagram {
+      padding: 45px 20px;
+      background: linear-gradient(135deg, #4b101c, #260710);
       color: #fff1d6;
       text-align: center;
-      padding: 28px 15px;
-      margin-top: 25px;
-      line-height: 1.8;
     }
-    .luxury-footer a {
-      color: #f3d18b;
+    .lux-instagram h2 {
+      color: #f4d99b;
+      font-family: Georgia, serif;
+      font-weight: normal;
+      font-size: 34px;
     }
-    html { scroll-behavior: smooth; }
-    section { scroll-margin-top: 20px; }
-    @media (max-width: 480px) {
-      .luxury-intro { padding: 28px 14px; }
-      .luxury-card { padding: 20px 14px; }
+    .lux-footer {
+      padding: 30px 15px;
+      background: #20060c;
+      color: #fff1d6;
+      text-align: center;
+      line-height: 1.9;
+      border-top: 1px solid #caa65a;
+    }
+    .lux-footer a { color: #f4d99b; }
+    @media (max-width: 800px) {
+      .lux-services, .lux-gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .lux-hero { min-height: 540px; }
+      .lux-hero::after {
+        background: linear-gradient(90deg, #23040bea, #23040b99 65%, #23040b40);
+      }
+    }
+    @media (max-width: 520px) {
+      .lux-nav { justify-content: center; }
+      .lux-brand { width: 100%; justify-content: center; }
+      .lux-links { justify-content: center; gap: 12px; }
+      .lux-links a { font-size: 12px; }
+      .lux-hero { min-height: 560px; }
+      .lux-hero-image { object-position: 58% center; }
+      .lux-hero-content { padding: 45px 20px; }
+      .lux-hero h1 { font-size: 44px; }
+      .lux-services, .lux-gallery { grid-template-columns: 1fr; }
+      .lux-card img, .lux-gallery img { height: auto; max-height: 460px; object-fit: contain; }
+      .lux-section { padding: 38px 16px; }
     }
   </style>
 </head>
 
 <body>
-  <header>
-    <nav aria-label="Main navigation">
-      <a href="index.html">Home</a>
-      <a href="#prices">Designs &amp; Prices</a>
-      <a href="gallery.html">Gallery</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
+  <header class="lux-header">
+    <nav class="lux-nav">
+      <a class="lux-brand" href="index.html">
+        <img src="logo.png.PNG" alt="Alankrita Mehndi Art logo">
+        <span>Alankrita<br><small>MEHNDI ART</small></span>
+      </a>
+      <div class="lux-links">
+        <a href="#home">Home</a>
+        <a href="#prices">Prices</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
     </nav>
   </header>
 
   <main>
-    <section class="luxury-intro">
-      <img src="logo.png.PNG" alt="Alankrita Mehndi Art logo">
-      <p>WELCOME TO</p>
-      <h1>Alankrita Mehndi Art</h1>
-      <p>Elegant mehndi artistry for your most beautiful moments.</p>
-      <p>Bridal elegance · Traditional beauty · Luxury designs</p>
-      <a class="luxury-button" href="https://wa.me/919129824138?text=Hello%20Alankrita%20Mehndi%20Art%2C%20I%20would%20like%20to%20enquire%20about%20a%20booking." target="_blank" rel="noopener">Book on WhatsApp</a>
-      <a class="luxury-button" href="gallery.html">Explore Gallery</a>
+    <section class="lux-hero" id="home">
+      <img class="lux-hero-image"
+           src="luxury-hero.jpeg.PNG"
+           alt="Luxury mehndi artistry with intricate henna designs"
+           fetchpriority="high">
+      <div class="lux-hero-content">
+        <div class="lux-eyebrow">Tradition &nbsp; ✦ &nbsp; Art &nbsp; ✦ &nbsp; Elegance</div>
+        <h1>Beautiful<br><em>Mehndi Art</em></h1>
+        <h2 style="font-family:Georgia,serif;font-weight:normal;color:#fff1d6;">
+          For Your Special Moments
+        </h2>
+        <p>Traditional designs, modern styles and custom creations — crafted with love and care.</p>
+        <a class="lux-btn"
+           href="https://wa.me/919129824138?text=Hello%20Alankrita%20Mehndi%20Art%2C%20I%20would%20like%20to%20book%20a%20mehndi%20appointment."
+           target="_blank" rel="noopener">☏ Book on WhatsApp →</a>
+      </div>
     </section>
 
-    <section class="luxury-section" id="prices">
-      <h2>Our Mehndi Services</h2>
-      <p>Beautiful designs for every special occasion.</p>
+    <section class="lux-section" id="prices">
+      <h2>Our Signature Services</h2>
+      <p class="lux-subtitle">Explore our favourite styles, crafted for weddings, celebrations and unforgettable moments.</p>
 
-      <div class="luxury-grid">
-        <article class="luxury-card">
-          <h3>Bridal Mehndi</h3>
-          <p>Beautiful traditional designs for your wedding day.</p>
-          <div class="luxury-price">Starting ₹2,100</div>
-          <a class="luxury-button" href="https://wa.me/919129824138?text=Hello%2C%20I%20am%20interested%20in%20Bridal%20Mehndi.">Enquire Now</a>
+      <div class="lux-services">
+        <article class="lux-card">
+          <img src="Bridal.style.JPG" alt="Bridal mehndi design" loading="lazy">
+          <div class="lux-card-content">
+            <h3>Bridal Mehndi</h3>
+            <p>Beautiful traditional artistry for your wedding day.</p>
+            <div class="lux-price">Starting ₹2,100</div>
+            <a class="lux-btn" href="https://wa.me/919129824138?text=I%20am%20interested%20in%20Bridal%20Mehndi." target="_blank" rel="noopener">Enquire</a>
+          </div>
         </article>
 
-        <article class="luxury-card">
-          <h3>Arabic Style</h3>
-          <p>Flowing patterns with graceful floral details.</p>
-          <div class="luxury-price">Starting ₹399</div>
-          <a class="luxury-button" href="https://wa.me/919129824138?text=Hello%2C%20I%20am%20interested%20in%20Arabic%20Style%20Mehndi.">Enquire Now</a>
+        <article class="lux-card">
+          <img src="Arabic.style.JPG" alt="Arabic style mehndi" loading="lazy">
+          <div class="lux-card-content">
+            <h3>Arabic Style</h3>
+            <p>Flowing patterns and graceful floral details.</p>
+            <div class="lux-price">Starting ₹399</div>
+            <a class="lux-btn" href="https://wa.me/919129824138?text=I%20am%20interested%20in%20Arabic%20Style%20Mehndi." target="_blank" rel="noopener">Enquire</a>
+          </div>
         </article>
 
-        <article class="luxury-card">
-          <h3>Indian Style</h3>
-          <p>Intricate traditional motifs and fine detailing.</p>
-          <div class="luxury-price">Starting ₹599</div>
-          <a class="luxury-button" href="https://wa.me/919129824138?text=Hello%2C%20I%20am%20interested%20in%20Indian%20Style%20Mehndi.">Enquire Now</a>
+        <article class="lux-card">
+          <img src="Indian.style.JPG" alt="Indian style mehndi" loading="lazy">
+          <div class="lux-card-content">
+            <h3>Indian Style</h3>
+            <p>Traditional motifs with intricate details.</p>
+            <div class="lux-price">Starting ₹599</div>
+            <a class="lux-btn" href="https://wa.me/919129824138?text=I%20am%20interested%20in%20Indian%20Style%20Mehndi." target="_blank" rel="noopener">Enquire</a>
+          </div>
         </article>
 
-        <article class="luxury-card">
-          <h3>Mandala Mehndi</h3>
-          <p>Elegant circular patterns with a timeless look.</p>
-          <div class="luxury-price">Starting ₹699</div>
-          <a class="luxury-button" href="https://wa.me/919129824138?text=Hello%2C%20I%20am%20interested%20in%20Mandala%20Mehndi.">Enquire Now</a>
+        <article class="lux-card">
+          <img src="Mandala.style.JPG" alt="Mandala mehndi design" loading="lazy">
+          <div class="lux-card-content">
+            <h3>Mandala Style</h3>
+            <p>Elegant circular patterns and fine detailing.</p>
+            <div class="lux-price">Starting ₹699</div>
+            <a class="lux-btn" href="https://wa.me/919129824138?text=I%20am%20interested%20in%20Mandala%20Mehndi." target="_blank" rel="noopener">Enquire</a>
+          </div>
         </article>
 
-        <article class="luxury-card">
-          <h3>Premium Bridal</h3>
-          <p>Luxurious detailing for an unforgettable bridal look.</p>
-          <div class="luxury-price">Starting ₹5,100</div>
-          <a class="luxury-button" href="https://wa.me/919129824138?text=Hello%2C%20I%20am%20interested%20in%20Premium%20Bridal%20Mehndi.">Enquire Now</a>
+        <article class="lux-card">
+          <img src="Premium.bridal.style.JPG" alt="Premium bridal mehndi" loading="lazy">
+          <div class="lux-card-content">
+            <h3>Premium Bridal</h3>
+            <p>Luxurious artistry for your most memorable day.</p>
+            <div class="lux-price">Starting ₹5,100</div>
+            <a class="lux-btn" href="https://wa.me/919129824138?text=I%20am%20interested%20in%20Premium%20Bridal%20Mehndi." target="_blank" rel="noopener">Enquire</a>
+          </div>
         </article>
       </div>
     </section>
 
-    <section class="luxury-section" id="gallery">
-      <h2>Our Design Gallery</h2>
-      <p>Discover the beauty of mehndi artistry.</p>
-      <div class="luxury-grid">
-        <a class="luxury-gallery-link" href="gallery.html">✦ Explore All Designs<br><br>View Our Gallery →</a>
+    <section class="lux-section" id="gallery">
+      <h2>A Glimpse of Our Art</h2>
+      <p class="lux-subtitle">Every pattern tells a story. Explore our mehndi creations.</p>
+      <div class="lux-gallery">
+        <img src="Bridal.style.JPG" alt="Bridal mehndi artwork" loading="lazy">
+        <img src="Arabic.style.JPG" alt="Arabic mehndi artwork" loading="lazy">
+        <img src="Indian.style.JPG" alt="Indian mehndi artwork" loading="lazy">
+        <img src="Mandala.style.JPG" alt="Mandala mehndi artwork" loading="lazy">
+        <img src="Premium.bridal.style.JPG" alt="Premium bridal mehndi artwork" loading="lazy">
       </div>
+      <a class="lux-btn" href="gallery.html">Explore Full Gallery →</a>
     </section>
 
-    <section class="luxury-section" id="about">
-      <h2>About Alankrita Mehndi Art</h2>
-      <p class="luxury-about">
-        At Alankrita Mehndi Art, every design celebrates beauty, tradition and individuality.
-        From graceful Arabic patterns to detailed bridal artistry, our goal is to make
-        your special moments even more memorable.
+    <section class="lux-section" id="about">
+      <h2>Artistry with Elegance</h2>
+      <p class="lux-about">
+        At Alankrita Mehndi Art, we celebrate the beauty of tradition through
+        detailed mehndi designs and thoughtful artistry. From graceful Arabic
+        patterns to luxurious bridal styles, every design is created to make
+        your special moments memorable.
       </p>
     </section>
 
-    <section class="luxury-section" id="contact">
+    <section class="lux-instagram">
+      <h2>Follow Our Creative Journey</h2>
+      <p>Discover more designs, inspiration and our latest work on Instagram.</p>
+      <p><strong>Add your Instagram profile link here next.</strong></p>
+      <a class="lux-btn" href="https://www.instagram.com/" target="_blank" rel="noopener">Find Us on Instagram ↗</a>
+    </section>
+
+    <section class="lux-section" id="contact">
       <h2>Let’s Create Something Beautiful</h2>
-      <p>For bookings, prices and enquiries, message us directly on WhatsApp.</p>
-      <a class="luxury-button" href="https://wa.me/919129824138?text=Hello%20Alankrita%20Mehndi%20Art%2C%20I%20would%20like%20to%20make%20an%20enquiry." target="_blank" rel="noopener">Chat on WhatsApp</a>
+      <p class="lux-subtitle">For bookings, availability and design enquiries, message us directly.</p>
+      <a class="lux-btn" href="https://wa.me/919129824138?text=Hello%20Alankrita%20Mehndi%20Art%2C%20I%20would%20like%20to%20enquire%20about%20a%20booking." target="_blank" rel="noopener">Book Your Appointment</a>
     </section>
   </main>
 
-  <footer class="luxury-footer">
+  <footer class="lux-footer">
     <strong>Alankrita Mehndi Art</strong>
     <p>Artistry with elegance. Beauty in every detail.</p>
-    <p>WhatsApp: <a href="https://wa.me/919129824138">+91 91298 24138</a></p>
+    <p><a href="https://wa.me/919129824138">WhatsApp: +91 91298 24138</a></p>
     <p>© 2026 Alankrita Mehndi Art</p>
   </footer>
-
-  <a href="https://wa.me/919129824138" target="_blank" rel="noopener"
-     aria-label="Chat with Alankrita Mehndi Art on WhatsApp"
-     style="position:fixed;right:16px;bottom:18px;z-index:99;background:#176b43;color:white;text-decoration:none;padding:13px 17px;border-radius:35px;font-weight:bold;box-shadow:0 5px 15px #0003;">
-    WhatsApp
-  </a>
 </body>
 </html>
