@@ -3,50 +3,81 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#350b19">
   <title>Mehndi Gallery | Alankrita Mehndi Art</title>
   <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
 </head>
 <body>
   <header class="navbar">
-    <a class="brand" href="index.html">ALANKRITA <span>MEHNDI ART</span></a>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="whatsapp.html">Book</a>
-    </nav>
+    <a class="brand" href="index.html">ALANKRITA<span>MEHNDI ART</span></a>
+    <a class="nav-book" href="https://wa.me/919129824138">Book Now ↗</a>
   </header>
 
-  <section class="page-hero">
-    <p class="eyebrow">THE ARTWORK COLLECTION</p>
-    <h1>Every detail, <em>beautiful.</em></h1>
-    <p>Tap any photo to enlarge it. Use the arrows to explore the collection.</p>
-  </section>
+  <main>
+    <section class="gallery-section section">
+      <p class="eyebrow">OUR COLLECTION</p>
+      <h2>Mehndi <em>Masterpieces</em></h2>
+      <p class="section-copy">Explore our designs. Tap any photograph to view it larger.</p>
 
-  <section class="section">
-    <div class="home-gallery">
-      <button class="gallery-tile tile-tall" data-full="Premium.bridal.style.JPG" aria-label="View premium bridal design"><img src="Premium.bridal.style.JPG" alt="Premium bridal mehndi"></button>
-      <button class="gallery-tile" data-full="Bridal.style.JPG" aria-label="View bridal design"><img src="Bridal.style.JPG" alt="Bridal mehndi"></button>
-      <button class="gallery-tile" data-full="Arabic.style.JPG" aria-label="View Arabic design"><img src="Arabic.style.JPG" alt="Arabic mehndi"></button>
-      <button class="gallery-tile" data-full="Indian.style.JPG" aria-label="View Indian design"><img src="Indian.style.JPG" alt="Indian mehndi"></button>
-      <button class="gallery-tile" data-full="Mandala.style.JPG" aria-label="View mandala design"><img src="Mandala.style.JPG" alt="Mandala mehndi"></button>
-    </div>
-    <div class="center"><a class="button gold-button" href="whatsapp.html">BOOK YOUR DESIGN ↗</a></div>
-  </section>
+      <div class="gallery-grid">
+        <figure class="gallery-tile"><img src="Premium.bridal.style.JPG" alt="Premium bridal mehndi"><figcaption>Premium Bridal</figcaption></figure>
+        <figure class="gallery-tile"><img src="Bridal.style.JPG" alt="Bridal mehndi"><figcaption>Bridal Elegance</figcaption></figure>
+        <figure class="gallery-tile"><img src="Arabic.style.JPG" alt="Arabic mehndi"><figcaption>Arabic Artistry</figcaption></figure>
+        <figure class="gallery-tile"><img src="Indian.style.JPG" alt="Indian mehndi"><figcaption>Indian Tradition</figcaption></figure>
+        <figure class="gallery-tile"><img src="Mandala.style.JPG" alt="Mandala mehndi"><figcaption>Mandala Magic</figcaption></figure>
+      </div>
 
-  <div class="lightbox" id="lightbox" aria-hidden="true">
-    <button class="lightbox-close" aria-label="Close image">&times;</button>
-    <button class="lightbox-prev" aria-label="Previous image">‹</button>
-    <img id="lightbox-image" src="" alt="Enlarged mehndi artwork">
-    <button class="lightbox-next" aria-label="Next image">›</button>
-    <p class="lightbox-hint">TAP OUTSIDE OR × TO CLOSE</p>
-  </div>
+      <a class="button button-gold" href="index.html" style="margin-top:35px">← Back to Home</a>
+      <a class="button button-outline" href="https://wa.me/919129824138" style="margin-top:15px;background:#350b19;color:#fff">Book Your Mehndi ↗</a>
+    </section>
+  </main>
 
-  <div class="floating-social">
-    <a class="float-button wa" href="whatsapp.html" aria-label="WhatsApp">WA</a>
-    <a class="float-button ig" href="instagram.html" aria-label="Instagram">IG</a>
-    <a class="float-button yt" href="youtube.html" aria-label="YouTube">YT</a>
-  </div>
-  <footer><a class="brand" href="index.html">ALANKRITA <span>MEHNDI ART</span></a><p>Artistry that stays with you.</p></footer>
+  <footer class="footer">
+    <a class="brand" href="index.html">ALANKRITA<span>MEHNDI ART</span></a>
+    <p>Art on your hands. Memories in your heart.</p>
+  </footer>
+
+  <script>
+    const tiles = [...document.querySelectorAll('.gallery-tile')];
+    const viewer = document.createElement('div');
+    viewer.className = 'lightbox';
+    viewer.innerHTML = '<button class="lightbox-close" aria-label="Close">×</button><button class="lightbox-prev" aria-label="Previous">‹</button><img alt=""><button class="lightbox-next" aria-label="Next">›</button><p></p>';
+    document.body.appendChild(viewer);
+
+    const picture = viewer.querySelector('img');
+    const title = viewer.querySelector('p');
+    let index = 0;
+
+    function show(i) {
+      index = (i + tiles.length) % tiles.length;
+      picture.src = tiles[index].querySelector('img').src;
+      picture.alt = tiles[index].querySelector('img').alt;
+      title.textContent = tiles[index].querySelector('figcaption').textContent;
+    }
+
+    function open(i) {
+      show(i);
+      viewer.classList.add('open');
+      document.body.classList.add('lightbox-open');
+    }
+
+    function close() {
+      viewer.classList.remove('open');
+      document.body.classList.remove('lightbox-open');
+    }
+
+    tiles.forEach((tile, i) => tile.addEventListener('click', () => open(i)));
+    viewer.querySelector('.lightbox-close').addEventListener('click', close);
+    viewer.querySelector('.lightbox-prev').addEventListener('click', () => show(index - 1));
+    viewer.querySelector('.lightbox-next').addEventListener('click', () => show(index + 1));
+    viewer.addEventListener('click', e => { if (e.target === viewer) close(); });
+    document.addEventListener('keydown', e => {
+      if (!viewer.classList.contains('open')) return;
+      if (e.key === 'Escape') close();
+      if (e.key === 'ArrowLeft') show(index - 1);
+      if (e.key === 'ArrowRight') show(index + 1);
+    });
+  </script>
 </body>
 </html>
