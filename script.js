@@ -1,102 +1,233 @@
 
-const menuToggle = document.getElementById('menuToggle');
-const mainNav = document.getElementById('mainNav');
+/* ============================================
+   ALANKRITA MEHNDI ART
+   Website interactions
+   ============================================ */
 
-if (menuToggle && mainNav) {
-  menuToggle.addEventListener('click', () => {
-    const isOpen = mainNav.classList.toggle('nav-open');
-    menuToggle.setAttribute('aria-expanded', String(isOpen));
-    menuToggle.textContent = isOpen ? '×' : '☰';
-  });
+document.addEventListener("DOMContentLoaded", () => {
+  // MOBILE NAVIGATION
+  const menuToggle = document.querySelector(".menu-toggle");
+  const mainNav = document.querySelector(".main-nav");
 
-  mainNav.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      mainNav.classList.remove('nav-open');
-      menuToggle.setAttribute('aria-expanded', 'false');
-      menuToggle.textContent = '☰';
+  function closeMenu() {
+    if (!menuToggle || !mainNav) return;
+
+    menuToggle.setAttribute("aria-expanded", "false");
+    mainNav.classList.remove("nav-open");
+    document.body.classList.remove("menu-open");
+  }
+
+  if (menuToggle && mainNav) {
+    menuToggle.addEventListener("click", () => {
+      const isOpen =
+        menuToggle.getAttribute("aria-expanded") === "true";
+
+      menuToggle.setAttribute(
+        "aria-expanded",
+        String(!isOpen)
+      );
+
+      mainNav.classList.toggle("nav-open", !isOpen);
+      document.body.classList.toggle("menu-open", !isOpen);
+    });
+
+    mainNav.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", closeMenu);
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") closeMenu();
+    });
+
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 760) closeMenu();
+    });
+  }
+
+  // GALLERY LIGHTBOX
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImage = document.getElementById("lightboxImage");
+  const lightboxCaption =
+    document.getElementById("lightboxCaption");
+  const lightboxClose =
+    document.getElementById("lightboxClose");
+  const lightboxPrev =
+    document.getElementById("lightboxPrev");
+  const lightboxNext =
+    document.getElementById("lightboxNext");
+
+  const galleryButtons = Array.from(
+    document.querySelectorAll(".gallery-tile")
+  );
+
+  let currentImageIndex = 0;
+  let lastFocusedElement = null;
+
+  function getGalleryImage(button) {
+    const image = button.querySelector("img");
+
+    return {
+      src:
+        button.dataset.fullImage ||
+        (image ? image.currentSrc || image.src : ""),
+      alt: image ? image.alt : "Mehndi design",
+      caption:
+        button.querySelector(".gallery-caption")?.textContent
+          .trim() || "Alankrita Mehndi Art",
+    };
+  }
+
+  function showGalleryImage(index) {
+    if (!galleryButtons.length || !lightboxImage) return;
+
+    currentImageIndex =
+      (index + galleryButtons.length) % galleryButtons.length;
+
+    const imageData = getGalleryImage(
+      galleryButtons[currentImageIndex]
+    );
+
+    lightboxImage.src = imageData.src;
+    lightboxImage.alt = imageData.alt;
+
+    if (lightboxCaption) {
+      lightboxCaption.textContent = imageData.caption;
+    }
+  }
+
+  function openLightbox(index, trigger) {
+    if (!lightbox || !lightboxImage) return;
+
+    lastFocusedElement = trigger;
+    showGalleryImage(index);
+
+    if (typeof lightbox.showModal === "function") {
+      if (!lightbox.open) lightbox.showModal();
+    } else {
+      lightbox.setAttribute("open", "");
+    }
+
+    document.body.classList.add("lightbox-open");
+
+    if (lightboxClose) lightboxClose.focus();
+  }
+
+  function closeLightbox() {
+    if (!lightbox) return;
+
+    if (typeof lightbox.close === "function" && lightbox.open) {
+      lightbox.close();
+    } else {
+      lightbox.removeAttribute("open");
+    }
+
+    document.body.classList.remove("lightbox-open");
+
+    if (lastFocusedElement) {
+      lastFocusedElement.focus();
+    }
+  }
+
+  galleryButtons.forEach((button, index) => {
+    button.addEventListener("click", () => {
+      openLightbox(index, button);
     });
   });
-}
 
-const tiles = [...document.querySelectorAll('.gallery-tile')];
-const lightbox = document.getElementById('lightbox');
-const largeImage = document.getElementById('lightbox-image');
-const caption = document.getElementById('lightbox-caption');
-let current = 0;
-
-function showPhoto(index) {
-  if (!tiles.length || !largeImage) return;
-
-  current = (index + tiles.length) % tiles.length;
-  const image = tiles[current].querySelector('img');
-
-  largeImage.src = image.src;
-  largeImage.alt = image.alt;
-
-  if (caption) {
-    caption.textContent =
-      tiles[current].querySelector('figcaption')?.textContent || '';
+  if (lightboxClose) {
+    lightboxClose.addEventListener("click", closeLightbox);
   }
-}
 
-function openPhoto(index) {
-  if (!lightbox) return;
+  if (lightboxPrev) {
+    lightboxPrev.addEventListener("click", () => {
+      showGalleryImage(currentImageIndex - 1);
+    });
+  }
 
-  showPhoto(index);
-  lightbox.classList.add('open');
-  lightbox.setAttribute('aria-hidden', 'false');
-  document.body.classList.add('lightbox-open');
-}
+  if (lightboxNext) {
+    lightboxNext.addEventListener("click", () => {
+      showGalleryImage(currentImageIndex + 1);
+    });
+  }
 
-function closePhoto() {
-  if (!lightbox) return;
-
-  lightbox.classList.remove('open');
-  lightbox.setAttribute('aria-hidden', 'true');
-  document.body.classList.remove('lightbox-open');
-}
-
-tiles.forEach((tile, index) => {
-  tile.addEventListener('click', () => openPhoto(index));
-});
-
-if (lightbox) {
-  lightbox.querySelector('.lightbox-close')
-    ?.addEventListener('click', closePhoto);
-
-  lightbox.querySelector('.lightbox-prev')
-    ?.addEventListener('click', () => showPhoto(current - 1));
-
-  lightbox.querySelector('.lightbox-next')
-    ?.addEventListener('click', () => showPhoto(current + 1));
-
-  lightbox.addEventListener('click', event => {
-    if (event.target === lightbox) closePhoto();
-  });
-}
-
-document.addEventListener('keydown', event => {
-  if (!lightbox?.classList.contains('open')) return;
-
-  if (event.key === 'Escape') closePhoto();
-  if (event.key === 'ArrowRight') showPhoto(current + 1);
-  if (event.key === 'ArrowLeft') showPhoto(current - 1);
-});
-
-if ('IntersectionObserver' in window) {
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('revealed');
-        observer.unobserve(entry.target);
+  if (lightbox) {
+    lightbox.addEventListener("click", (event) => {
+      if (event.target === lightbox) {
+        closeLightbox();
       }
     });
-  }, { threshold: 0.12 });
 
-  document.querySelectorAll(
-    '.service-card, .gallery-tile, .intro, .booking, .experience-item, .faq details'
-  ).forEach(item => {
-    item.classList.add('reveal');
-    observer.observe(item);
+    lightbox.addEventListener("close", () => {
+      document.body.classList.remove("lightbox-open");
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (!lightbox.open) return;
+
+      if (event.key === "ArrowLeft") {
+        event.preventDefault();
+        showGalleryImage(currentImageIndex - 1);
+      }
+
+      if (event.key === "ArrowRight") {
+        event.preventDefault();
+        showGalleryImage(currentImageIndex + 1);
+      }
+    });
+  }
+
+  // SUBTLE SCROLL REVEALS
+  const revealElements = document.querySelectorAll(
+    ".section-heading, .value-item, .service-card, " +
+    ".gallery-tile, .experience-image, .experience-content, " +
+    ".faq details"
+  );
+
+  const reducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
+
+  if ("IntersectionObserver" in window && !reducedMotion) {
+    revealElements.forEach((element) => {
+      element.classList.add("reveal");
+    });
+
+    const revealObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("revealed");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.12,
+        rootMargin: "0px 0px -30px 0px",
+      }
+    );
+
+    revealElements.forEach((element) => {
+      revealObserver.observe(element);
+    });
+  }
+
+  // AUTOMATIC COPYRIGHT YEAR
+  const copyright = document.querySelector(".copyright");
+
+  if (copyright) {
+    copyright.innerHTML = copyright.innerHTML.replace(
+      /\b202\d\b/g,
+      String(new Date().getFullYear())
+    );
+  }
+
+  // PREVENT EMPTY LINKS FROM JUMPING TO THE TOP
+  document.querySelectorAll('a[href="#"]').forEach((link) => {
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+    });
   });
-}
+
+  console.log("Alankrita Mehndi Art website is ready.");
+});
