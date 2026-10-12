@@ -1,72 +1,102 @@
 
-const tiles = [...document.querySelectorAll(".gallery-tile")];
-const lightbox = document.getElementById("lightbox");
-const lightboxImage = document.getElementById("lightbox-image");
-let currentPhoto = 0;
+const menuToggle = document.getElementById('menuToggle');
+const mainNav = document.getElementById('mainNav');
+
+if (menuToggle && mainNav) {
+  menuToggle.addEventListener('click', () => {
+    const isOpen = mainNav.classList.toggle('nav-open');
+    menuToggle.setAttribute('aria-expanded', String(isOpen));
+    menuToggle.textContent = isOpen ? '×' : '☰';
+  });
+
+  mainNav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mainNav.classList.remove('nav-open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      menuToggle.textContent = '☰';
+    });
+  });
+}
+
+const tiles = [...document.querySelectorAll('.gallery-tile')];
+const lightbox = document.getElementById('lightbox');
+const largeImage = document.getElementById('lightbox-image');
+const caption = document.getElementById('lightbox-caption');
+let current = 0;
 
 function showPhoto(index) {
-  if (!tiles.length || !lightbox || !lightboxImage) return;
-  currentPhoto = (index + tiles.length) % tiles.length;
+  if (!tiles.length || !largeImage) return;
 
-  const tile = tiles[currentPhoto];
-  const image = tile.querySelector("img");
-  lightboxImage.src = tile.dataset.full || image.src;
-  lightboxImage.alt = image.alt;
-  lightbox.classList.add("open");
-  lightbox.setAttribute("aria-hidden", "false");
-  document.body.style.overflow = "hidden";
+  current = (index + tiles.length) % tiles.length;
+  const image = tiles[current].querySelector('img');
+
+  largeImage.src = image.src;
+  largeImage.alt = image.alt;
+
+  if (caption) {
+    caption.textContent =
+      tiles[current].querySelector('figcaption')?.textContent || '';
+  }
+}
+
+function openPhoto(index) {
+  if (!lightbox) return;
+
+  showPhoto(index);
+  lightbox.classList.add('open');
+  lightbox.setAttribute('aria-hidden', 'false');
+  document.body.classList.add('lightbox-open');
 }
 
 function closePhoto() {
   if (!lightbox) return;
-  lightbox.classList.remove("open");
-  lightbox.setAttribute("aria-hidden", "true");
-  lightboxImage.src = "";
-  document.body.style.overflow = "";
+
+  lightbox.classList.remove('open');
+  lightbox.setAttribute('aria-hidden', 'true');
+  document.body.classList.remove('lightbox-open');
 }
 
 tiles.forEach((tile, index) => {
-  tile.addEventListener("click", () => showPhoto(index));
+  tile.addEventListener('click', () => openPhoto(index));
 });
 
-document.querySelector(".lightbox-close")?.addEventListener("click", closePhoto);
-document.querySelector(".lightbox-prev")?.addEventListener("click", () => showPhoto(currentPhoto - 1));
-document.querySelector(".lightbox-next")?.addEventListener("click", () => showPhoto(currentPhoto + 1));
+if (lightbox) {
+  lightbox.querySelector('.lightbox-close')
+    ?.addEventListener('click', closePhoto);
 
-lightbox?.addEventListener("click", event => {
-  if (event.target === lightbox) closePhoto();
+  lightbox.querySelector('.lightbox-prev')
+    ?.addEventListener('click', () => showPhoto(current - 1));
+
+  lightbox.querySelector('.lightbox-next')
+    ?.addEventListener('click', () => showPhoto(current + 1));
+
+  lightbox.addEventListener('click', event => {
+    if (event.target === lightbox) closePhoto();
+  });
+}
+
+document.addEventListener('keydown', event => {
+  if (!lightbox?.classList.contains('open')) return;
+
+  if (event.key === 'Escape') closePhoto();
+  if (event.key === 'ArrowRight') showPhoto(current + 1);
+  if (event.key === 'ArrowLeft') showPhoto(current - 1);
 });
 
-document.addEventListener("keydown", event => {
-  if (!lightbox?.classList.contains("open")) return;
-  if (event.key === "Escape") closePhoto();
-  if (event.key === "ArrowLeft") showPhoto(currentPhoto - 1);
-  if (event.key === "ArrowRight") showPhoto(currentPhoto + 1);
-});
-
-// Pause moving elements while a visitor interacts with the gallery.
-tiles.forEach(tile => {
-  tile.addEventListener("pointerdown", () => tile.classList.add("is-paused"));
-  tile.addEventListener("pointerleave", () => tile.classList.remove("is-paused"));
-});
-
-// Gentle reveal animation for sections as they enter the screen.
-const revealItems = document.querySelectorAll(
-  ".service-card, .social-card, .section-heading, .story"
-);
-
-if ("IntersectionObserver" in window) {
+if ('IntersectionObserver' in window) {
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        entry.target.classList.add("revealed");
+        entry.target.classList.add('revealed');
         observer.unobserve(entry.target);
       }
     });
   }, { threshold: 0.12 });
 
-  revealItems.forEach(item => {
-    item.classList.add("reveal-ready");
+  document.querySelectorAll(
+    '.service-card, .gallery-tile, .intro, .booking, .experience-item, .faq details'
+  ).forEach(item => {
+    item.classList.add('reveal');
     observer.observe(item);
   });
 }
