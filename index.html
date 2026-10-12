@@ -1,464 +1,677 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <meta name="theme-color" content="#350b19">
-  <meta name="description" content="Discover luxury bridal mehndi, Arabic henna, Indian designs and bespoke mehndi artistry by Alankrita Mehndi Art. Explore our portfolio and enquire about your appointment.">
-
-  <meta property="og:title" content="Alankrita Mehndi Art | Luxury Bridal Mehndi">
-  <meta property="og:description" content="Intricate mehndi artistry for your most unforgettable moments.">
-  <meta property="og:type" content="website">
+  <meta name="description" content="Discover beautiful bridal mehndi, Arabic mehndi, Indian mehndi and premium bridal henna designs by Alankrita Mehndi Art. Contact us to book your special occasion.">
 
   <title>Alankrita Mehndi Art | Luxury Bridal Mehndi</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 
 <body>
 
-  <a class="skip-link" href="#main">Skip to content</a>
-
   <!-- HEADER -->
   <header class="site-header" id="top">
-    <a class="brand" href="#top" aria-label="Alankrita Mehndi Art home">
+
+    <a class="brand" href="#home" aria-label="Alankrita Mehndi Art home">
       <span class="brand-name">ALANKRITA</span>
-      <span class="brand-subtitle">M E H N D I&nbsp; A R T</span>
+      <span class="brand-subtitle">MEHNDI ART</span>
     </a>
 
     <button
       class="menu-toggle"
-      id="menuToggle"
       type="button"
-      aria-label="Open navigation"
-      aria-controls="mainNav"
-      aria-expanded="false">
+      aria-label="Toggle navigation"
+      aria-expanded="false"
+      aria-controls="main-navigation"
+    >
       <span></span>
       <span></span>
       <span></span>
     </button>
 
-    <nav class="main-nav" id="mainNav" aria-label="Main navigation">
-      <a href="#top">Home</a>
+    <nav class="main-nav" id="main-navigation" aria-label="Main navigation">
+      <a href="#home">Home</a>
+      <a href="#about">Our Story</a>
       <a href="#services">Services</a>
       <a href="#gallery">Gallery</a>
-      <a href="#about">Our Story</a>
-      <a href="#faq">FAQ</a>
-      <a href="#contact">Contact</a>
-      <a class="nav-book" href="https://wa.me/919129824138">Book an Enquiry ↗</a>
+      <a href="#faq">FAQs</a>
+      <a class="nav-book" href="#booking">Book Your Date</a>
     </nav>
+
   </header>
 
-  <main id="main">
+
+  <main>
 
     <!-- HERO -->
-    <section class="hero" aria-labelledby="hero-title">
+    <section class="hero" id="home">
+
       <div class="hero-image-wrap">
         <img
           class="hero-image"
           src="Premium.bridal.style.JPG"
-          alt="Intricate premium bridal mehndi artistry"
-          fetchpriority="high">
+          alt="Intricate premium bridal mehndi design"
+          fetchpriority="high"
+        >
       </div>
 
       <div class="hero-shade"></div>
-      <div class="hero-ornament hero-ornament-left" aria-hidden="true">❋</div>
-      <div class="hero-ornament hero-ornament-right" aria-hidden="true">✧</div>
+
+      <span class="hero-ornament hero-ornament-left" aria-hidden="true">❋</span>
+      <span class="hero-ornament hero-ornament-right" aria-hidden="true">✧</span>
 
       <div class="hero-content">
-        <p class="eyebrow">ARTISTRY · TRADITION · ELEGANCE</p>
 
-        <h1 id="hero-title">
+        <p class="eyebrow">ARTISTRY • TRADITION • ELEGANCE</p>
+
+        <h1>
           Every Bride<br>
           Deserves a<br>
           <em>Masterpiece.</em>
         </h1>
 
         <p class="hero-copy">
-          Intricate mehndi artistry, thoughtfully created for
-          your most beautiful and unforgettable moments.
+          Celebrate your beautiful moments with intricate mehndi artistry.
+          From timeless Indian traditions to modern bridal elegance,
+          every design tells a story.
         </p>
 
         <div class="hero-actions">
-          <a class="button button-gold" href="#gallery">
-            Discover Our Designs <span aria-hidden="true">↗</span>
+          <a
+            class="button button-gold"
+            href="https://wa.me/919129824138?text=Hello%20Alankrita%20Mehndi%20Art%2C%20I%20would%20like%20to%20enquire%20about%20a%20booking."
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Book Your Mehndi <span aria-hidden="true">↗</span>
           </a>
 
-          <a
-            class="button button-outline"
-            href="https://wa.me/919129824138?text=Hi%20Alankrita%20Mehndi%20Art%2C%20I%20would%20like%20to%20enquire%20about%20an%20appointment.">
-            Book on WhatsApp
+          <a class="button button-outline" href="#gallery">
+            Explore Our Art
           </a>
         </div>
 
         <div class="hero-signature">
-          <span>01 — THE ART OF HENNA</span>
-          <span>MADE WITH LOVE ♡</span>
+          <span>DESIGNED WITH LOVE</span>
+          <span>CREATED WITH PRECISION</span>
         </div>
+
       </div>
 
-      <a class="scroll-cue" href="#services">
-        <span>DISCOVER THE COLLECTION</span>
+      <a class="scroll-cue" href="#about" aria-label="Scroll to our story">
+        <span>DISCOVER THE ART</span>
         <span aria-hidden="true">↓</span>
       </a>
+
     </section>
 
-    <!-- INTRODUCTION -->
-    <section class="intro section" id="about">
-      <div class="intro-decoration" aria-hidden="true">❋</div>
 
-      <p class="eyebrow">THE ART BEHIND EVERY DETAIL</p>
+    <!-- OUR STORY -->
+    <section class="section intro" id="about">
+
+      <span class="intro-decoration" aria-hidden="true">❋</span>
+
+      <p class="eyebrow">THE ART OF CELEBRATION</p>
 
       <h2>
-        More than mehndi.<br>
-        <em>A memory in every detail.</em>
+        More Than Mehndi.<br>
+        <em>A Beautiful Tradition.</em>
       </h2>
 
       <p class="intro-copy">
-        At Alankrita Mehndi Art, every pattern is an expression
-        of creativity and tradition. From delicate flowing lines
-        to elaborate bridal compositions, discover artistry
-        created to complement your special occasion.
+        Mehndi is more than a beautiful pattern. It is a celebration of
+        love, culture and unforgettable beginnings. At Alankrita Mehndi Art,
+        every design is created with care, creativity and attention to detail
+        to make your special occasion even more memorable.
       </p>
 
       <div class="intro-values">
-        <article class="value-item">
-          <span class="value-icon" aria-hidden="true">✧</span>
-          <h3>Intricate Artistry</h3>
-          <p>Beautiful patterns with thoughtful detail.</p>
-        </article>
 
         <article class="value-item">
           <span class="value-icon" aria-hidden="true">❋</span>
-          <h3>Your Own Style</h3>
-          <p>Find inspiration for your special occasion.</p>
+          <h3>Intricate Artistry</h3>
+          <p>Beautiful details inspired by traditional and contemporary mehndi art.</p>
         </article>
 
         <article class="value-item">
           <span class="value-icon" aria-hidden="true">♡</span>
-          <h3>Made with Love</h3>
-          <p>Personal touches for meaningful memories.</p>
+          <h3>Made With Love</h3>
+          <p>Thoughtfully created designs for your celebrations and special moments.</p>
         </article>
+
+        <article class="value-item">
+          <span class="value-icon" aria-hidden="true">✧</span>
+          <h3>Your Unique Style</h3>
+          <p>Choose a look that reflects your personality and your occasion.</p>
+        </article>
+
       </div>
+
     </section>
 
-    <!-- SERVICES -->
-    <section class="services section" id="services">
+
+    <!-- SERVICES AND PRICES -->
+    <section class="section services" id="services">
+
       <div class="section-heading">
-        <p class="eyebrow">OUR SIGNATURE STYLES</p>
-        <h2>Find Your <em>Perfect Design</em></h2>
+        <p class="eyebrow">FIND YOUR PERFECT DESIGN</p>
+
+        <h2>
+          Our Mehndi <em>Collection</em>
+        </h2>
+
         <p>
-          From graceful everyday patterns to intricate bridal
-          artistry, explore the style that speaks to you.
+          From delicate patterns to elaborate bridal designs,
+          discover the style that makes your occasion unforgettable.
         </p>
       </div>
 
       <div class="service-grid">
 
-        <article class="service-card">
-          <span class="service-number">01</span>
-          <span class="service-flower" aria-hidden="true">✿</span>
-          <h3>Arabic Style</h3>
-          <p>Flowing patterns and graceful spaces with a modern touch.</p>
-          <p class="service-price">Starting at <strong>₹399</strong></p>
-          <a href="https://wa.me/919129824138?text=Hi%2C%20I%20am%20interested%20in%20Arabic%20mehndi.">Enquire about this style ↗</a>
-        </article>
-
-        <article class="service-card">
-          <span class="service-number">02</span>
-          <span class="service-flower" aria-hidden="true">❋</span>
-          <h3>Indian Style</h3>
-          <p>Traditional motifs and detailed compositions inspired by heritage.</p>
-          <p class="service-price">Starting at <strong>₹599</strong></p>
-          <a href="https://wa.me/919129824138?text=Hi%2C%20I%20am%20interested%20in%20Indian%20mehndi.">Enquire about this style ↗</a>
-        </article>
-
-        <article class="service-card">
-          <span class="service-number">03</span>
-          <span class="service-flower" aria-hidden="true">✺</span>
-          <h3>Mandala Style</h3>
-          <p>Balanced circular patterns with delicate, timeless detail.</p>
-          <p class="service-price">Starting at <strong>₹699</strong></p>
-          <a href="https://wa.me/919129824138?text=Hi%2C%20I%20am%20interested%20in%20Mandala%20mehndi.">Enquire about this style ↗</a>
-        </article>
-
-        <article class="service-card">
-          <span class="service-number">04</span>
-          <span class="service-flower" aria-hidden="true">❀</span>
-          <h3>Bridal Mehndi</h3>
-          <p>Beautifully detailed artistry for your wedding celebrations.</p>
-          <p class="service-price">Starting at <strong>₹2,100</strong></p>
-          <a href="https://wa.me/919129824138?text=Hi%2C%20I%20would%20like%20to%20enquire%20about%20bridal%20mehndi.">Enquire about this style ↗</a>
-        </article>
-
         <article class="service-card service-card-featured">
-          <span class="service-number">05</span>
-          <span class="service-flower" aria-hidden="true">✧</span>
+          <span class="service-number">01 / BRIDAL</span>
+          <span class="service-flower" aria-hidden="true">❋</span>
+
           <h3>Premium Bridal</h3>
-          <p>Our signature bridal offering for an elaborate mehndi look.</p>
-          <p class="service-price">Starting at <strong>₹5,100</strong></p>
-          <a href="https://wa.me/919129824138?text=Hi%2C%20I%20would%20like%20to%20enquire%20about%20premium%20bridal%20mehndi.">Enquire about this style ↗</a>
+
+          <p>
+            Detailed, statement-making mehndi for brides who love
+            an elaborate and elegant design.
+          </p>
+
+          <p class="service-price">
+            Starting at <strong>₹5,100</strong>
+          </p>
+
+          <a href="https://wa.me/919129824138?text=Hello%2C%20I%20am%20interested%20in%20Premium%20Bridal%20Mehndi." target="_blank" rel="noopener noreferrer">
+            Enquire Now ↗
+          </a>
+        </article>
+
+        <article class="service-card">
+          <span class="service-number">02 / BRIDAL</span>
+          <span class="service-flower" aria-hidden="true">✧</span>
+
+          <h3>Bridal Mehndi</h3>
+
+          <p>
+            Traditional bridal artistry designed to complement
+            your wedding celebrations.
+          </p>
+
+          <p class="service-price">
+            Starting at <strong>₹2,100</strong>
+          </p>
+
+          <a href="https://wa.me/919129824138?text=Hello%2C%20I%20am%20interested%20in%20Bridal%20Mehndi." target="_blank" rel="noopener noreferrer">
+            Enquire Now ↗
+          </a>
+        </article>
+
+        <article class="service-card">
+          <span class="service-number">03 / ARABIC</span>
+          <span class="service-flower" aria-hidden="true">❋</span>
+
+          <h3>Arabic Mehndi</h3>
+
+          <p>
+            Flowing trails, floral motifs and beautiful patterns
+            for an elegant look.
+          </p>
+
+          <p class="service-price">
+            Starting at <strong>₹399</strong>
+          </p>
+
+          <a href="https://wa.me/919129824138?text=Hello%2C%20I%20am%20interested%20in%20Arabic%20Mehndi." target="_blank" rel="noopener noreferrer">
+            Enquire Now ↗
+          </a>
+        </article>
+
+        <article class="service-card">
+          <span class="service-number">04 / INDIAN</span>
+          <span class="service-flower" aria-hidden="true">✧</span>
+
+          <h3>Indian Mehndi</h3>
+
+          <p>
+            Traditional motifs and intricate patterns inspired
+            by timeless Indian artistry.
+          </p>
+
+          <p class="service-price">
+            Starting at <strong>₹599</strong>
+          </p>
+
+          <a href="https://wa.me/919129824138?text=Hello%2C%20I%20am%20interested%20in%20Indian%20Mehndi." target="_blank" rel="noopener noreferrer">
+            Enquire Now ↗
+          </a>
+        </article>
+
+        <article class="service-card">
+          <span class="service-number">05 / MANDALA</span>
+          <span class="service-flower" aria-hidden="true">❋</span>
+
+          <h3>Mandala Mehndi</h3>
+
+          <p>
+            Symmetrical circular patterns for a graceful,
+            balanced and timeless look.
+          </p>
+
+          <p class="service-price">
+            Starting at <strong>₹699</strong>
+          </p>
+
+          <a href="https://wa.me/919129824138?text=Hello%2C%20I%20am%20interested%20in%20Mandala%20Mehndi." target="_blank" rel="noopener noreferrer">
+            Enquire Now ↗
+          </a>
+        </article>
+
+        <article class="service-card">
+          <span class="service-number">06 / CUSTOM</span>
+          <span class="service-flower" aria-hidden="true">♡</span>
+
+          <h3>Your Own Style</h3>
+
+          <p>
+            Have a special design in mind? Let's discuss your
+            inspiration and occasion.
+          </p>
+
+          <p class="service-price">
+            <strong>Let's Talk</strong>
+          </p>
+
+          <a href="https://wa.me/919129824138?text=Hello%2C%20I%20would%20like%20to%20discuss%20a%20custom%20mehndi%20design." target="_blank" rel="noopener noreferrer">
+            Discuss Your Design ↗
+          </a>
         </article>
 
       </div>
 
       <p class="pricing-note">
-        Starting prices are indicative. Final pricing can depend on
-        the design, coverage, occasion and requirements.
-        Please enquire for a personalised quote.
+        Prices are starting prices. Final charges may vary depending
+        on design coverage, complexity and occasion.
       </p>
+
     </section>
 
+
     <!-- GALLERY -->
-    <section class="gallery-section section" id="gallery">
+    <section class="section gallery-section" id="gallery">
+
       <div class="section-heading">
-        <p class="eyebrow">A COLLECTION OF HANDCRAFTED BEAUTY</p>
-        <h2>The Art <em>Gallery</em></h2>
+        <p class="eyebrow">A LITTLE INSPIRATION</p>
+
+        <h2>
+          Art That Tells <em>Your Story</em>
+        </h2>
+
         <p>
-          Explore our mehndi designs. Select any photograph
-          to view it in a larger format.
+          Explore our mehndi styles. Tap any photograph to view it
+          in a larger gallery.
         </p>
       </div>
 
       <div class="gallery-grid">
 
-        <button class="gallery-tile" type="button"
+        <button
+          class="gallery-tile"
+          type="button"
           data-full-image="Premium.bridal.style.JPG"
-          data-caption="Premium Bridal Mehndi">
-          <img src="Premium.bridal.style.JPG"
+          aria-label="View Premium Bridal Mehndi photograph"
+        >
+          <img
+            src="Premium.bridal.style.JPG"
             alt="Premium bridal mehndi design"
-            loading="lazy">
+            loading="lazy"
+          >
           <span class="gallery-caption">Premium Bridal</span>
-          <span class="gallery-view">View design ↗</span>
+          <span class="gallery-view">View Design ↗</span>
         </button>
 
-        <button class="gallery-tile" type="button"
+        <button
+          class="gallery-tile"
+          type="button"
           data-full-image="Bridal.style.JPG"
-          data-caption="Bridal Mehndi">
-          <img src="Bridal.style.JPG"
-            alt="Bridal mehndi artistry"
-            loading="lazy">
+          aria-label="View Bridal Mehndi photograph"
+        >
+          <img
+            src="Bridal.style.JPG"
+            alt="Bridal mehndi design"
+            loading="lazy"
+          >
           <span class="gallery-caption">Bridal Elegance</span>
-          <span class="gallery-view">View design ↗</span>
+          <span class="gallery-view">View Design ↗</span>
         </button>
 
-        <button class="gallery-tile" type="button"
+        <button
+          class="gallery-tile"
+          type="button"
           data-full-image="Arabic.style.JPG"
-          data-caption="Arabic Mehndi">
-          <img src="Arabic.style.JPG"
+          aria-label="View Arabic Mehndi photograph"
+        >
+          <img
+            src="Arabic.style.JPG"
             alt="Arabic mehndi pattern"
-            loading="lazy">
-          <span class="gallery-caption">Arabic Artistry</span>
-          <span class="gallery-view">View design ↗</span>
+            loading="lazy"
+          >
+          <span class="gallery-caption">Arabic Style</span>
+          <span class="gallery-view">View Design ↗</span>
         </button>
 
-        <button class="gallery-tile" type="button"
+        <button
+          class="gallery-tile"
+          type="button"
           data-full-image="Indian.style.JPG"
-          data-caption="Indian Mehndi">
-          <img src="Indian.style.JPG"
-            alt="Traditional Indian mehndi pattern"
-            loading="lazy">
+          aria-label="View Indian Mehndi photograph"
+        >
+          <img
+            src="Indian.style.JPG"
+            alt="Traditional Indian mehndi design"
+            loading="lazy"
+          >
           <span class="gallery-caption">Indian Tradition</span>
-          <span class="gallery-view">View design ↗</span>
+          <span class="gallery-view">View Design ↗</span>
         </button>
 
-        <button class="gallery-tile" type="button"
+        <button
+          class="gallery-tile"
+          type="button"
           data-full-image="Mandala.style.JPG"
-          data-caption="Mandala Mehndi">
-          <img src="Mandala.style.JPG"
-            alt="Mandala mehndi artwork"
-            loading="lazy">
-          <span class="gallery-caption">Mandala Magic</span>
-          <span class="gallery-view">View design ↗</span>
+          aria-label="View Mandala Mehndi photograph"
+        >
+          <img
+            src="Mandala.style.JPG"
+            alt="Mandala mehndi pattern"
+            loading="lazy"
+          >
+          <span class="gallery-caption">Mandala Art</span>
+          <span class="gallery-view">View Design ↗</span>
+        </button>
+
+        <button
+          class="gallery-tile"
+          type="button"
+          data-full-image="Premium.bridal.style.JPG"
+          aria-label="View another Premium Bridal Mehndi photograph"
+        >
+          <img
+            src="Premium.bridal.style.JPG"
+            alt="Intricate premium bridal henna artwork"
+            loading="lazy"
+          >
+          <span class="gallery-caption">Bridal Details</span>
+          <span class="gallery-view">View Design ↗</span>
         </button>
 
       </div>
 
       <p class="gallery-note">
-        Every design tells a story. Let’s find yours.
+        Every pattern begins with a little inspiration.
       </p>
+
     </section>
 
-    <!-- BRAND EXPERIENCE -->
-    <section class="experience section">
+
+    <!-- EXPERIENCE -->
+    <section class="section experience" id="experience">
+
       <div class="experience-image">
         <img
           src="Bridal.style.JPG"
-          alt="Intricate bridal mehndi details"
-          loading="lazy">
+          alt="Detailed bridal mehndi artistry"
+          loading="lazy"
+        >
       </div>
 
       <div class="experience-content">
-        <p class="eyebrow">THE ALANKRITA EXPERIENCE</p>
-        <h2>Little Details.<br><em>Lasting Impressions.</em></h2>
+
+        <p class="eyebrow">MADE FOR YOUR MOMENT</p>
+
+        <h2>
+          Your Celebration.<br>
+          <em>Your Mehndi Story.</em>
+        </h2>
 
         <p>
-          Your special occasion deserves a design that feels
-          personal. Share your inspirations and preferred style
-          with us so we can discuss an approach suited to your event.
+          From weddings and engagements to festivals and family
+          celebrations, mehndi brings people together through art
+          and tradition.
         </p>
 
-        <a class="text-link" href="https://wa.me/919129824138?text=Hi%2C%20I%20would%20like%20to%20discuss%20a%20custom%20mehndi%20design.">
-          Discuss Your Design ↗
+        <p>
+          Tell us about your occasion, preferred design and date.
+          We will help you explore the right mehndi style for your moment.
+        </p>
+
+        <a class="text-link" href="#booking">
+          Let's Plan Your Design ↗
         </a>
+
       </div>
+
     </section>
 
+
     <!-- FAQ -->
-    <section class="faq section" id="faq">
+    <section class="section faq" id="faq">
+
       <div class="section-heading">
-        <p class="eyebrow">A FEW HELPFUL ANSWERS</p>
-        <h2>Frequently Asked <em>Questions</em></h2>
+        <p class="eyebrow">GOOD TO KNOW</p>
+
+        <h2>
+          Frequently Asked <em>Questions</em>
+        </h2>
+
+        <p>
+          A few helpful details before you book your mehndi appointment.
+        </p>
       </div>
 
       <div class="faq-list">
+
         <details>
-          <summary>How can I enquire about an appointment?</summary>
+          <summary>How can I book an appointment?</summary>
           <p>
-            Use any WhatsApp booking link on this website to tell us
-            your occasion, preferred date and design requirements.
+            Tap any booking or WhatsApp link on this website to contact
+            us. Share your occasion, preferred date and design requirements.
           </p>
         </details>
 
         <details>
-          <summary>What are your starting prices?</summary>
+          <summary>How much does mehndi cost?</summary>
           <p>
-            Arabic starts at ₹399, Indian at ₹599, Mandala at ₹699,
-            Bridal at ₹2,100 and Premium Bridal at ₹5,100.
-            Final pricing depends on your requirements.
+            Our listed starting prices range from ₹399 for Arabic mehndi
+            to ₹5,100 for Premium Bridal Mehndi. Your final price depends
+            on the design and coverage you choose.
           </p>
         </details>
 
         <details>
-          <summary>Can I request a customised design?</summary>
+          <summary>Can I choose my own design?</summary>
           <p>
-            Yes. Share your preferred patterns and inspiration through
-            WhatsApp so we can discuss your requirements.
+            Yes. You can share your inspiration or preferred style with
+            us so we can discuss a design that suits your occasion.
+          </p>
+        </details>
+
+        <details>
+          <summary>When should I book bridal mehndi?</summary>
+          <p>
+            We recommend contacting us as early as possible with your
+            wedding date so we can discuss availability and requirements.
           </p>
         </details>
 
         <details>
           <summary>Where can I see more of your work?</summary>
           <p>
-            Explore the gallery on this website and visit our
-            Instagram profile for more design inspiration.
+            Visit our Instagram page for more mehndi inspiration and
+            examples of our work.
           </p>
         </details>
 
-        <details>
-          <summary>How do I confirm availability and pricing?</summary>
-          <p>
-            Contact us directly with your date, occasion, location
-            and preferred design. Availability and final pricing
-            must be confirmed with us.
-          </p>
-        </details>
       </div>
+
     </section>
 
-    <!-- CONTACT AND BOOKING -->
-    <section class="booking section" id="contact">
-      <div class="booking-decoration" aria-hidden="true">❋</div>
+
+    <!-- BOOKING -->
+    <section class="section booking" id="booking">
+
+      <span class="booking-decoration" aria-hidden="true">❋</span>
 
       <p class="eyebrow">YOUR SPECIAL DAY STARTS HERE</p>
 
-      <h2>Let’s Create Something <em>Beautiful.</em></h2>
+      <h2>
+        Let's Create Something<br>
+        <em>Beautiful Together.</em>
+      </h2>
 
       <p>
-        From bridal celebrations to special occasions,
-        tell us about the design you have in mind.
+        Have a wedding, engagement, festival or special occasion coming up?
+        Contact Alankrita Mehndi Art to discuss your design and booking.
       </p>
 
       <div class="booking-actions">
-        <a class="button button-gold"
-          href="https://wa.me/919129824138?text=Hi%20Alankrita%20Mehndi%20Art%2C%20I%20would%20like%20to%20enquire%20about%20booking%20mehndi.">
-          Enquire on WhatsApp ↗
+
+        <a
+          class="button button-gold"
+          href="https://wa.me/919129824138?text=Hello%20Alankrita%20Mehndi%20Art%2C%20I%20would%20like%20to%20enquire%20about%20a%20mehndi%20booking."
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Chat on WhatsApp ↗
         </a>
 
-        <a class="button button-outline"
+        <a
+          class="button button-outline"
           href="https://www.instagram.com/balaji_mehandi_art_banglore/"
           target="_blank"
-          rel="noopener noreferrer">
+          rel="noopener noreferrer"
+        >
           Follow on Instagram ↗
         </a>
+
       </div>
 
       <p class="contact-note">
-        Instagram: @balaji_mehandi_art_banglore
+        Send us your preferred date, occasion and design requirements.
       </p>
+
     </section>
 
   </main>
 
+
   <!-- FOOTER -->
   <footer class="site-footer">
+
     <a class="brand footer-brand" href="#top">
       <span class="brand-name">ALANKRITA</span>
-      <span class="brand-subtitle">M E H N D I&nbsp; A R T</span>
+      <span class="brand-subtitle">MEHNDI ART</span>
     </a>
 
     <p class="footer-tagline">
-      Art on your hands. Memories in your heart.
+      Tradition in every line. Beauty in every detail.
     </p>
 
     <nav class="footer-nav" aria-label="Footer navigation">
-      <a href="#top">Home</a>
+      <a href="#home">Home</a>
+      <a href="#about">Our Story</a>
       <a href="#services">Services</a>
       <a href="#gallery">Gallery</a>
-      <a href="#about">Our Story</a>
-      <a href="#contact">Contact</a>
+      <a href="#booking">Contact</a>
+      <a
+        href="https://www.instagram.com/balaji_mehandi_art_banglore/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >Instagram</a>
     </nav>
 
     <p class="copyright">
-      © <span id="currentYear">2026</span> Alankrita Mehndi Art.
-      All rights reserved.
+      © 2026 Alankrita Mehndi Art. All rights reserved.
     </p>
+
   </footer>
 
-  <!-- FLOATING CONTACT LINKS -->
-  <nav class="floating-social" aria-label="Quick contact links">
-    <a class="social whatsapp"
-      href="https://wa.me/919129824138"
-      aria-label="Contact on WhatsApp"
-      title="WhatsApp">WA</a>
 
-    <a class="social instagram"
+  <!-- FLOATING SOCIAL LINKS -->
+  <div class="floating-social" aria-label="Contact us">
+
+    <a
+      class="social whatsapp"
+      href="https://wa.me/919129824138"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Contact us on WhatsApp"
+      title="WhatsApp"
+    >WA</a>
+
+    <a
+      class="social instagram"
       href="https://www.instagram.com/balaji_mehandi_art_banglore/"
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Visit Instagram"
-      title="Instagram">IG</a>
-  </nav>
+      aria-label="Visit our Instagram page"
+      title="Instagram"
+    >IG</a>
 
-  <!-- IMAGE LIGHTBOX -->
-  <dialog class="lightbox" id="lightbox" aria-label="Mehndi photograph viewer">
-    <button class="lightbox-close"
+  </div>
+
+
+  <!-- GALLERY LIGHTBOX -->
+  <dialog class="lightbox" id="lightbox" aria-label="Mehndi photo gallery">
+
+    <button
+      class="lightbox-close"
       id="lightboxClose"
       type="button"
-      aria-label="Close photograph">×</button>
+      aria-label="Close gallery"
+    >×</button>
 
-    <button class="lightbox-prev"
+    <button
+      class="lightbox-prev"
       id="lightboxPrev"
       type="button"
-      aria-label="Previous photograph">‹</button>
+      aria-label="Previous photo"
+    >‹</button>
 
     <figure class="lightbox-figure">
-      <img id="lightboxImage" src="" alt="">
-      <figcaption id="lightboxCaption"></figcaption>
+
+      <img
+        id="lightboxImage"
+        src="Premium.bridal.style.JPG"
+        alt="Mehndi design enlarged"
+      >
+
+      <figcaption id="lightboxCaption">
+        Premium Bridal
+      </figcaption>
+
     </figure>
 
-    <button class="lightbox-next"
+    <button
+      class="lightbox-next"
       id="lightboxNext"
       type="button"
-      aria-label="Next photograph">›</button>
-  </dialog>
+      aria-label="Next photo"
+    >›</button>
 
-  <script src="script.js" defer></script>
+  </dialog>
 
 </body>
 </html>
