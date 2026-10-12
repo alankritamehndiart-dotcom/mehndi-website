@@ -4,15 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#4b101c">
-  <meta name="description" content="Explore Alankrita Mehndi Art designs and enquire about your favourite style.">
-  <title>Mehndi Gallery | Alankrita Mehndi Art</title>
+  <meta name="description" content="Explore real bridal and traditional mehndi artwork by Alankrita Mehndi Art.">
+  <title>Luxury Mehndi Gallery | Alankrita Mehndi Art</title>
   <link rel="stylesheet" href="style.css">
+
   <style>
     .gallery-hero {
       margin: 22px auto;
       width: calc(100% - 28px);
       max-width: 1150px;
-      padding: 40px 18px;
+      padding: 38px 18px;
       text-align: center;
       color: #fff3dc;
       background: linear-gradient(135deg, #4b101c, #7b2638, #300811);
@@ -20,90 +21,104 @@
       border-radius: 20px;
       box-shadow: 0 15px 35px #4b101c25;
     }
+
     .gallery-hero h1 {
       color: #f3dfad;
       font-family: Georgia, serif;
       font-size: clamp(32px, 7vw, 52px);
       line-height: 1.2;
     }
+
     .gallery-hero p {
-      max-width: 620px;
-      margin: 12px auto;
       line-height: 1.8;
     }
+
     .gallery-content {
-      max-width: 1100px;
-      padding: 28px 16px;
+      max-width: 1150px;
       margin: auto;
+      padding: 28px 16px;
       text-align: center;
     }
+
     .gallery-content h2 {
       color: #4b101c;
       font-family: Georgia, serif;
       font-size: clamp(26px, 5vw, 36px);
     }
+
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 20px;
+      gap: 22px;
       margin: 28px auto;
     }
+
     .gallery-card {
       overflow: hidden;
       border: 1px solid #c9a052;
-      border-radius: 17px;
+      border-radius: 18px;
       background: linear-gradient(145deg, #fffdf8, #f3e3cc);
       box-shadow: 0 8px 22px #4b101c15;
       transition: transform .25s, box-shadow .25s;
     }
+
     .gallery-card:hover {
       transform: translateY(-5px);
       box-shadow: 0 15px 28px #4b101c25;
     }
-    .gallery-art {
-      min-height: 170px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 25px 15px;
-      background: radial-gradient(circle, #fff9eb, #ecd7b3);
-      color: #7a2637;
-      font-family: Georgia, serif;
-      font-size: 38px;
+
+    .gallery-card img {
+      display: block;
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      background: #f3e3cc;
     }
+
     .gallery-card h3 {
       color: #4b101c;
       font-family: Georgia, serif;
       padding: 0 10px;
     }
+
     .gallery-card p {
       padding: 0 15px;
       line-height: 1.7;
     }
+
     .gallery-card .luxury-button {
       margin-bottom: 20px;
     }
-    .gallery-note {
-      max-width: 700px;
-      margin: 25px auto;
-      line-height: 1.8;
-    }
+
     @media (max-width: 750px) {
       .gallery-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 14px;
       }
+
+      .gallery-card img {
+        height: 260px;
+      }
     }
-    @media (max-width: 500px) {
+
+    @media (max-width: 480px) {
       .gallery-grid {
         grid-template-columns: 1fr;
       }
+
+      .gallery-card img {
+        height: auto;
+        max-height: 480px;
+        object-fit: contain;
+      }
+
       .gallery-hero {
-        padding: 30px 15px;
+        padding: 28px 14px;
       }
     }
   </style>
 </head>
+
 <body>
   <header>
     <nav aria-label="Main navigation">
@@ -118,62 +133,77 @@
   <main>
     <section class="gallery-hero">
       <h1>Our Mehndi Gallery</h1>
-      <p>Discover timeless artistry, delicate details and beautiful mehndi styles for your special moments.</p>
-      <a class="luxury-button" href="https://wa.me/919129824138?text=Hello%20Alankrita%20Mehndi%20Art%2C%20I%20would%20like%20to%20enquire%20about%20your%20designs.">Enquire on WhatsApp</a>
+      <p>Real artistry. Beautiful details. Timeless elegance.</p>
+      <p>Explore our mehndi styles and enquire about your favourite design.</p>
+      <a class="luxury-button"
+         href="https://wa.me/919129824138?text=Hello%20Alankrita%20Mehndi%20Art%2C%20I%20would%20like%20to%20enquire%20about%20a%20design."
+         target="_blank" rel="noopener">Book on WhatsApp</a>
     </section>
 
     <section class="gallery-content">
-      <h2>Explore Our Styles</h2>
-      <p>These are style categories. We’ll add your own real mehndi photographs next.</p>
+      <h2>Made with Art &amp; Elegance</h2>
+      <p>Discover designs for weddings, celebrations and special occasions.</p>
 
       <div class="gallery-grid">
+
         <article class="gallery-card">
-          <div class="gallery-art" aria-hidden="true">✧</div>
+          <img src="Bridal.style.JPG"
+               alt="Bridal mehndi design"
+               loading="lazy">
           <h3>Bridal Mehndi</h3>
-          <p>Intricate artistry for your wedding celebrations.</p>
-          <a class="luxury-button" href="https://wa.me/919129824138?text=Hello%2C%20I%20would%20like%20to%20see%20Bridal%20Mehndi%20designs.">Enquire</a>
+          <p>Traditional artistry for your special day.</p>
+          <a class="luxury-button"
+             href="https://wa.me/919129824138?text=Hello%2C%20I%20am%20interested%20in%20Bridal%20Mehndi."
+             target="_blank" rel="noopener">Enquire</a>
         </article>
 
         <article class="gallery-card">
-          <div class="gallery-art" aria-hidden="true">❋</div>
+          <img src="Arabic.style.JPG"
+               alt="Arabic style mehndi design"
+               loading="lazy">
           <h3>Arabic Style</h3>
-          <p>Flowing floral patterns with graceful spacing.</p>
-          <a class="luxury-button" href="https://wa.me/919129824138?text=Hello%2C%20I%20would%20like%20to%20see%20Arabic%20Mehndi%20designs.">Enquire</a>
+          <p>Graceful patterns with flowing details.</p>
+          <a class="luxury-button"
+             href="https://wa.me/919129824138?text=Hello%2C%20I%20am%20interested%20in%20Arabic%20Style%20Mehndi."
+             target="_blank" rel="noopener">Enquire</a>
         </article>
 
         <article class="gallery-card">
-          <div class="gallery-art" aria-hidden="true">❀</div>
+          <img src="Indian.style.JPG"
+               alt="Indian style mehndi design"
+               loading="lazy">
           <h3>Indian Style</h3>
-          <p>Traditional motifs and detailed patterns.</p>
-          <a class="luxury-button" href="https://wa.me/919129824138?text=Hello%2C%20I%20would%20like%20to%20see%20Indian%20Mehndi%20designs.">Enquire</a>
+          <p>Beautiful traditional motifs and details.</p>
+          <a class="luxury-button"
+             href="https://wa.me/919129824138?text=Hello%2C%20I%20am%20interested%20in%20Indian%20Style%20Mehndi."
+             target="_blank" rel="noopener">Enquire</a>
         </article>
 
         <article class="gallery-card">
-          <div class="gallery-art" aria-hidden="true">◎</div>
+          <img src="Mandala.style.JPG"
+               alt="Mandala mehndi design"
+               loading="lazy">
           <h3>Mandala Mehndi</h3>
-          <p>Balanced circular patterns with elegant detail.</p>
-          <a class="luxury-button" href="https://wa.me/919129824138?text=Hello%2C%20I%20would%20like%20to%20see%20Mandala%20Mehndi%20designs.">Enquire</a>
+          <p>Elegant circular patterns and fine detail.</p>
+          <a class="luxury-button"
+             href="https://wa.me/919129824138?text=Hello%2C%20I%20am%20interested%20in%20Mandala%20Mehndi."
+             target="_blank" rel="noopener">Enquire</a>
         </article>
 
         <article class="gallery-card">
-          <div class="gallery-art" aria-hidden="true">✦</div>
+          <img src="Premium.bridal.style.JPG"
+               alt="Premium bridal mehndi design"
+               loading="lazy">
           <h3>Premium Bridal</h3>
-          <p>Luxurious detailing for your most memorable day.</p>
-          <a class="luxury-button" href="https://wa.me/919129824138?text=Hello%2C%20I%20would%20like%20to%20enquire%20about%20Premium%20Bridal%20Mehndi.">Enquire</a>
+          <p>Luxury bridal artistry for unforgettable moments.</p>
+          <a class="luxury-button"
+             href="https://wa.me/919129824138?text=Hello%2C%20I%20am%20interested%20in%20Premium%20Bridal%20Mehndi."
+             target="_blank" rel="noopener">Enquire</a>
         </article>
 
-        <article class="gallery-card">
-          <div class="gallery-art" aria-hidden="true">❈</div>
-          <h3>Custom Designs</h3>
-          <p>Tell us what you love and enquire about your preferred style.</p>
-          <a class="luxury-button" href="https://wa.me/919129824138?text=Hello%2C%20I%20would%20like%20to%20discuss%20a%20custom%20Mehndi%20design.">Enquire</a>
-        </article>
       </div>
 
-      <p class="gallery-note">
-        Every celebration is unique. Contact us to discuss your preferred design,
-        occasion and booking details.
-      </p>
+      <p>For bookings and personalised enquiries, contact us directly.</p>
       <a class="luxury-button" href="index.html">Back to Home</a>
     </section>
   </main>
