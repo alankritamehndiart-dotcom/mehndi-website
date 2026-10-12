@@ -35,24 +35,23 @@
     <a class="button button-gold" href="#gallery">Explore Designs ↗</a>
     <a class="button button-outline" href="https://wa.me/919129824138">Book on WhatsApp</a>
   </div>
-
-  <div class="hero-art" aria-label="Decorative golden mandala">
+  <div class="hero-art">
     <div class="art-orbit orbit-one"></div>
     <div class="art-orbit orbit-two"></div>
     <div class="art-center">❋</div>
     <span class="art-caption">TIMELESS BEAUTY · HANDCRAFTED</span>
   </div>
   <div class="hero-bottom"><span>01 — THE ART OF HENNA</span><span>MADE WITH LOVE ♡</span></div>
-  <a class="scroll-cue" href="#services">SCROLL TO DISCOVER <span>↓</span></a>
+  <a class="scroll-cue" href="#services">SCROLL TO DISCOVER ↓</a>
 </section>
 
 <section class="intro section" id="about">
-  <p class="eyebrow">A LITTLE MAGIC ON YOUR HANDS</p>
+  <p class="eyebrow">THE ART BEHIND EVERY DETAIL</p>
   <h2>More than mehndi.<br><em>A memory in every detail.</em></h2>
-  <p>From graceful Arabic patterns to breathtaking bridal designs, discover henna art made to celebrate your story.</p>
+  <p>At Alankrita Mehndi Art, every line tells a story. Discover intricate bridal patterns, graceful Arabic designs and timeless traditional artistry created for your special moments.</p>
   <div class="stats">
-    <div><strong>01</strong><span>Personalised artistry</span></div>
-    <div><strong>♡</strong><span>Created with care</span></div>
+    <div><strong>♡</strong><span>Made with love</span></div>
+    <div><strong>✦</strong><span>Artful details</span></div>
     <div><strong>∞</strong><span>Beautiful memories</span></div>
   </div>
 </section>
@@ -74,7 +73,7 @@
 <section class="gallery-section section" id="gallery">
   <p class="eyebrow">THE ART GALLERY</p>
   <h2>Beautifully <em>Handcrafted</em></h2>
-  <p class="section-copy">Tap any design to view it in a larger gallery.</p>
+  <p class="section-copy">Tap any design to view it larger.</p>
   <div class="gallery-grid">
     <figure class="gallery-tile"><img src="Premium.bridal.style.JPG" alt="Premium bridal mehndi design" loading="lazy"><figcaption>Premium Bridal</figcaption></figure>
     <figure class="gallery-tile"><img src="Bridal.style.JPG" alt="Bridal mehndi design" loading="lazy"><figcaption>Bridal Elegance</figcaption></figure>
@@ -98,10 +97,10 @@
 <section class="faq section" id="faq">
   <p class="eyebrow">GOOD TO KNOW</p>
   <h2>Frequently Asked <em>Questions</em></h2>
-  <details><summary>How can I book my mehndi appointment?</summary><p>Tap any Book Now or WhatsApp button to message us about your date and design.</p></details>
-  <details><summary>What are your starting prices?</summary><p>Arabic designs start at ₹399, Indian designs at ₹599, Mandala at ₹699, Bridal at ₹2,100 and Premium Bridal at ₹5,100.</p></details>
+  <details><summary>How can I book my mehndi appointment?</summary><p>Tap a Book Now or WhatsApp button to message us about your date and design.</p></details>
+  <details><summary>What are your starting prices?</summary><p>Arabic starts at ₹399, Indian at ₹599, Mandala at ₹699, Bridal at ₹2,100 and Premium Bridal at ₹5,100.</p></details>
   <details><summary>Can I ask for a customised design?</summary><p>Yes! Message us on WhatsApp to discuss your preferred style and occasion.</p></details>
-  <details><summary>Where can I see more designs?</summary><p>Visit our gallery and Instagram page for mehndi inspiration and new creations.</p></details>
+  <details><summary>Where can I see more designs?</summary><p>Visit our gallery and Instagram page for more inspiration.</p></details>
 </section>
 
 <section class="booking section" id="contact">
@@ -135,80 +134,6 @@
   <p id="lightbox-caption"></p>
 </div>
 
-<script>
-  const menuToggle = document.getElementById('menuToggle');
-  const mainNav = document.getElementById('mainNav');
-
-  menuToggle.addEventListener('click', () => {
-    const open = mainNav.classList.toggle('nav-open');
-    menuToggle.setAttribute('aria-expanded', open);
-    menuToggle.textContent = open ? '×' : '☰';
-  });
-
-  mainNav.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      mainNav.classList.remove('nav-open');
-      menuToggle.setAttribute('aria-expanded', 'false');
-      menuToggle.textContent = '☰';
-    });
-  });
-
-  const tiles = [...document.querySelectorAll('.gallery-tile')];
-  const lightbox = document.getElementById('lightbox');
-  const largeImage = document.getElementById('lightbox-image');
-  const caption = document.getElementById('lightbox-caption');
-  let current = 0;
-
-  function showPhoto(index) {
-    current = (index + tiles.length) % tiles.length;
-    const image = tiles[current].querySelector('img');
-    largeImage.src = image.src;
-    largeImage.alt = image.alt;
-    caption.textContent = tiles[current].querySelector('figcaption').textContent;
-  }
-
-  function openPhoto(index) {
-    showPhoto(index);
-    lightbox.classList.add('open');
-    lightbox.setAttribute('aria-hidden', 'false');
-    document.body.classList.add('lightbox-open');
-  }
-
-  function closePhoto() {
-    lightbox.classList.remove('open');
-    lightbox.setAttribute('aria-hidden', 'true');
-    document.body.classList.remove('lightbox-open');
-  }
-
-  tiles.forEach((tile, index) => tile.addEventListener('click', () => openPhoto(index)));
-  document.querySelector('.lightbox-close').addEventListener('click', closePhoto);
-  document.querySelector('.lightbox-prev').addEventListener('click', () => showPhoto(current - 1));
-  document.querySelector('.lightbox-next').addEventListener('click', () => showPhoto(current + 1));
-
-  lightbox.addEventListener('click', event => {
-    if (event.target === lightbox) closePhoto();
-  });
-
-  document.addEventListener('keydown', event => {
-    if (!lightbox.classList.contains('open')) return;
-    if (event.key === 'Escape') closePhoto();
-    if (event.key === 'ArrowRight') showPhoto(current + 1);
-    if (event.key === 'ArrowLeft') showPhoto(current - 1);
-  });
-
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('revealed');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.12 });
-
-  document.querySelectorAll('.service-card, .gallery-tile, .intro, .booking, .experience-item, .faq details').forEach(item => {
-    item.classList.add('reveal');
-    observer.observe(item);
-  });
-</script>
+<script src="script.js"></script>
 </body>
 </html>
