@@ -3,105 +3,225 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#5b1527">
-  <meta name="description" content="Discover beautiful bridal, Arabic, Indian and Mandala mehndi designs by Alankrita Mehndi Art.">
-  <title>Alankrita Mehndi Art | Beautiful Mehndi Designs</title>
+  <meta name="theme-color" content="#4b101c">
+  <meta name="description" content="Alankrita Mehndi Art — Luxury bridal, Arabic, Indian and mandala mehndi designs. Contact us on WhatsApp for bookings.">
+  <title>Alankrita Mehndi Art | Luxury Mehndi Designs</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    .luxury-intro {
+      text-align: center;
+      padding: 38px 18px;
+      background: linear-gradient(135deg, #4b101c, #771f32, #3a0b15);
+      color: #fff4df;
+      border-radius: 18px;
+      margin: 18px auto;
+      box-shadow: 0 12px 28px #3b101c35;
+    }
+    .luxury-intro img {
+      width: 115px;
+      height: 115px;
+      object-fit: contain;
+      border-radius: 50%;
+      background: #fff7e9;
+      padding: 8px;
+      margin-bottom: 14px;
+    }
+    .luxury-intro h1 {
+      font-family: Georgia, serif;
+      font-size: clamp(30px, 7vw, 54px);
+      margin: 8px 0 14px;
+      color: #f3d18b;
+    }
+    .luxury-intro p {
+      max-width: 620px;
+      margin: 10px auto;
+      line-height: 1.8;
+    }
+    .luxury-button {
+      display: inline-block;
+      background: linear-gradient(135deg, #f6dfa7, #c79a48);
+      color: #42101a;
+      text-decoration: none;
+      padding: 13px 22px;
+      margin: 12px 6px 0;
+      border-radius: 30px;
+      font-weight: bold;
+      box-shadow: 0 5px 14px #0003;
+    }
+    .luxury-section {
+      padding: 28px 12px;
+      text-align: center;
+    }
+    .luxury-section h2 {
+      color: #741e30;
+      font-family: Georgia, serif;
+      font-size: clamp(25px, 5vw, 36px);
+    }
+    .luxury-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr));
+      gap: 18px;
+      max-width: 1050px;
+      margin: 24px auto;
+    }
+    .luxury-card {
+      background: linear-gradient(145deg, #fffdf8, #f4e7d6);
+      border: 1px solid #d9b76f;
+      border-radius: 17px;
+      padding: 23px 16px;
+      box-shadow: 0 8px 20px #4b101c12;
+      transition: transform .25s, box-shadow .25s;
+    }
+    .luxury-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 14px 28px #4b101c25;
+    }
+    .luxury-card h3 {
+      color: #68192a;
+      font-family: Georgia, serif;
+    }
+    .luxury-price {
+      font-size: 23px;
+      font-weight: bold;
+      color: #a47727;
+    }
+    .luxury-card p {
+      line-height: 1.7;
+    }
+    .luxury-gallery-link {
+      display: block;
+      text-decoration: none;
+      color: #68192a;
+      background: #f7eddd;
+      border: 1px solid #d9b76f;
+      border-radius: 15px;
+      padding: 25px 12px;
+      font-weight: bold;
+    }
+    .luxury-about {
+      max-width: 800px;
+      margin: 15px auto;
+      line-height: 1.9;
+    }
+    .luxury-footer {
+      background: #3b0b15;
+      color: #fff1d6;
+      text-align: center;
+      padding: 28px 15px;
+      margin-top: 25px;
+      line-height: 1.8;
+    }
+    .luxury-footer a {
+      color: #f3d18b;
+    }
+    html { scroll-behavior: smooth; }
+    section { scroll-margin-top: 20px; }
+    @media (max-width: 480px) {
+      .luxury-intro { padding: 28px 14px; }
+      .luxury-card { padding: 20px 14px; }
+    }
+  </style>
 </head>
 
 <body>
   <header>
-    <nav class="navbar">
-      <a class="brand" href="index.html">
-        <img src="logo.png.PNG" alt="Alankrita Mehndi Art logo">
-        <span>Alankrita Mehndi Art</span>
-      </a>
-
-      <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="#designs">Designs & Prices</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-      </div>
+    <nav aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="#prices">Designs &amp; Prices</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
     </nav>
   </header>
 
   <main>
-    <section class="hero">
-      <p class="eyebrow">ARTISTRY • TRADITION • ELEGANCE</p>
-      <h1>Beautiful Mehndi.<br><span>Unforgettable Moments.</span></h1>
-      <p>Celebrate your special moments with elegant mehndi artistry, from delicate patterns to luxurious bridal designs.</p>
-      <a class="btn" href="https://wa.me/919129824138" target="_blank" rel="noopener">Book on WhatsApp</a>
+    <section class="luxury-intro">
+      <img src="logo.png.PNG" alt="Alankrita Mehndi Art logo">
+      <p>WELCOME TO</p>
+      <h1>Alankrita Mehndi Art</h1>
+      <p>Elegant mehndi artistry for your most beautiful moments.</p>
+      <p>Bridal elegance · Traditional beauty · Luxury designs</p>
+      <a class="luxury-button" href="https://wa.me/919129824138?text=Hello%20Alankrita%20Mehndi%20Art%2C%20I%20would%20like%20to%20enquire%20about%20a%20booking." target="_blank" rel="noopener">Book on WhatsApp</a>
+      <a class="luxury-button" href="gallery.html">Explore Gallery</a>
     </section>
 
-    <section id="designs" class="section">
-      <p class="eyebrow">OUR COLLECTION</p>
-      <h2>Mehndi Designs & Starting Prices</h2>
-      <p class="section-intro">Find the perfect style for your special occasion.</p>
+    <section class="luxury-section" id="prices">
+      <h2>Our Mehndi Services</h2>
+      <p>Beautiful designs for every special occasion.</p>
 
-      <div class="price-grid">
-        <article class="price-card">
-          <div class="design-symbol">✿</div>
+      <div class="luxury-grid">
+        <article class="luxury-card">
           <h3>Bridal Mehndi</h3>
-          <p>Intricate designs for your once-in-a-lifetime celebration.</p>
-          <p class="price">Starting ₹2,100</p>
-          <a href="https://wa.me/919129824138?text=Hi%2C%20I%20am%20interested%20in%20Bridal%20Mehndi." target="_blank" rel="noopener">Enquire on WhatsApp ↗</a>
+          <p>Beautiful traditional designs for your wedding day.</p>
+          <div class="luxury-price">Starting ₹2,100</div>
+          <a class="luxury-button" href="https://wa.me/919129824138?text=Hello%2C%20I%20am%20interested%20in%20Bridal%20Mehndi.">Enquire Now</a>
         </article>
 
-        <article class="price-card">
-          <div class="design-symbol">❋</div>
+        <article class="luxury-card">
           <h3>Arabic Style</h3>
           <p>Flowing patterns with graceful floral details.</p>
-          <p class="price">Starting ₹399</p>
-          <a href="https://wa.me/919129824138?text=Hi%2C%20I%20am%20interested%20in%20Arabic%20Style%20Mehndi." target="_blank" rel="noopener">Enquire on WhatsApp ↗</a>
+          <div class="luxury-price">Starting ₹399</div>
+          <a class="luxury-button" href="https://wa.me/919129824138?text=Hello%2C%20I%20am%20interested%20in%20Arabic%20Style%20Mehndi.">Enquire Now</a>
         </article>
 
-        <article class="price-card">
-          <div class="design-symbol">❁</div>
+        <article class="luxury-card">
           <h3>Indian Style</h3>
-          <p>Traditional motifs and beautiful detailed patterns.</p>
-          <p class="price">Starting ₹599</p>
-          <a href="https://wa.me/919129824138?text=Hi%2C%20I%20am%20interested%20in%20Indian%20Style%20Mehndi." target="_blank" rel="noopener">Enquire on WhatsApp ↗</a>
+          <p>Intricate traditional motifs and fine detailing.</p>
+          <div class="luxury-price">Starting ₹599</div>
+          <a class="luxury-button" href="https://wa.me/919129824138?text=Hello%2C%20I%20am%20interested%20in%20Indian%20Style%20Mehndi.">Enquire Now</a>
         </article>
 
-        <article class="price-card">
-          <div class="design-symbol">✺</div>
+        <article class="luxury-card">
           <h3>Mandala Mehndi</h3>
-          <p>Elegant circular designs with balanced details.</p>
-          <p class="price">Starting ₹699</p>
-          <a href="https://wa.me/919129824138?text=Hi%2C%20I%20am%20interested%20in%20Mandala%20Mehndi." target="_blank" rel="noopener">Enquire on WhatsApp ↗</a>
+          <p>Elegant circular patterns with a timeless look.</p>
+          <div class="luxury-price">Starting ₹699</div>
+          <a class="luxury-button" href="https://wa.me/919129824138?text=Hello%2C%20I%20am%20interested%20in%20Mandala%20Mehndi.">Enquire Now</a>
         </article>
 
-        <article class="price-card featured">
-          <div class="design-symbol">✧</div>
+        <article class="luxury-card">
           <h3>Premium Bridal</h3>
-          <p>Luxurious, detailed artistry for an extraordinary bridal look.</p>
-          <p class="price">Starting ₹5,100</p>
-          <a href="https://wa.me/919129824138?text=Hi%2C%20I%20am%20interested%20in%20Premium%20Bridal%20Mehndi." target="_blank" rel="noopener">Enquire on WhatsApp ↗</a>
+          <p>Luxurious detailing for an unforgettable bridal look.</p>
+          <div class="luxury-price">Starting ₹5,100</div>
+          <a class="luxury-button" href="https://wa.me/919129824138?text=Hello%2C%20I%20am%20interested%20in%20Premium%20Bridal%20Mehndi.">Enquire Now</a>
         </article>
       </div>
-      <p class="note">Prices are starting prices. Final pricing may vary depending on design, coverage and requirements.</p>
     </section>
 
-    <section id="about" class="section about">
-      <p class="eyebrow">THE ART OF MEHNDI</p>
-      <h2>Made with Care, Created for You</h2>
-      <p>At Alankrita Mehndi Art, every design celebrates beauty, tradition and your personal style. Explore your favourite design and contact us to discuss your occasion.</p>
+    <section class="luxury-section" id="gallery">
+      <h2>Our Design Gallery</h2>
+      <p>Discover the beauty of mehndi artistry.</p>
+      <div class="luxury-grid">
+        <a class="luxury-gallery-link" href="gallery.html">✦ Explore All Designs<br><br>View Our Gallery →</a>
+      </div>
     </section>
 
-    <section id="contact" class="section contact">
-      <p class="eyebrow">LET'S CREATE SOMETHING BEAUTIFUL</p>
-      <h2>Ready to Book Your Mehndi?</h2>
-      <p>Contact us on WhatsApp to enquire about designs, availability and pricing.</p>
-      <a class="btn" href="https://wa.me/919129824138" target="_blank" rel="noopener">Chat with Us on WhatsApp</a>
+    <section class="luxury-section" id="about">
+      <h2>About Alankrita Mehndi Art</h2>
+      <p class="luxury-about">
+        At Alankrita Mehndi Art, every design celebrates beauty, tradition and individuality.
+        From graceful Arabic patterns to detailed bridal artistry, our goal is to make
+        your special moments even more memorable.
+      </p>
+    </section>
+
+    <section class="luxury-section" id="contact">
+      <h2>Let’s Create Something Beautiful</h2>
+      <p>For bookings, prices and enquiries, message us directly on WhatsApp.</p>
+      <a class="luxury-button" href="https://wa.me/919129824138?text=Hello%20Alankrita%20Mehndi%20Art%2C%20I%20would%20like%20to%20make%20an%20enquiry." target="_blank" rel="noopener">Chat on WhatsApp</a>
     </section>
   </main>
 
-  <footer>
-    <p>© 2026 Alankrita Mehndi Art. All rights reserved.</p>
-    <p>Designed with love and mehndi artistry.</p>
+  <footer class="luxury-footer">
+    <strong>Alankrita Mehndi Art</strong>
+    <p>Artistry with elegance. Beauty in every detail.</p>
+    <p>WhatsApp: <a href="https://wa.me/919129824138">+91 91298 24138</a></p>
+    <p>© 2026 Alankrita Mehndi Art</p>
   </footer>
 
-  <a class="whatsapp-float" href="https://wa.me/919129824138" target="_blank" rel="noopener" aria-label="Contact us on WhatsApp">WhatsApp</a>
+  <a href="https://wa.me/919129824138" target="_blank" rel="noopener"
+     aria-label="Chat with Alankrita Mehndi Art on WhatsApp"
+     style="position:fixed;right:16px;bottom:18px;z-index:99;background:#176b43;color:white;text-decoration:none;padding:13px 17px;border-radius:35px;font-weight:bold;box-shadow:0 5px 15px #0003;">
+    WhatsApp
+  </a>
 </body>
 </html>
