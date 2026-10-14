@@ -1,233 +1,441 @@
 
-/* ============================================
+/* =========================================================
    ALANKRITA MEHNDI ART
-   Website interactions
-   ============================================ */
+   Luxury Website Interactions
+   ========================================================= */
 
-document.addEventListener("DOMContentLoaded", () => {
-  // MOBILE NAVIGATION
-  const menuToggle = document.querySelector(".menu-toggle");
-  const mainNav = document.querySelector(".main-nav");
+(() => {
+  "use strict";
 
-  function closeMenu() {
-    if (!menuToggle || !mainNav) return;
+  const ready = (callback) => {
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", callback, { once: true });
+    } else {
+      callback();
+    }
+  };
 
-    menuToggle.setAttribute("aria-expanded", "false");
-    mainNav.classList.remove("nav-open");
-    document.body.classList.remove("menu-open");
-  }
+  ready(() => {
+    const body = document.body;
+    const reducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
 
-  if (menuToggle && mainNav) {
-    menuToggle.addEventListener("click", () => {
-      const isOpen =
-        menuToggle.getAttribute("aria-expanded") === "true";
+    /* ---------- Page loader ---------- */
 
-      menuToggle.setAttribute(
-        "aria-expanded",
-        String(!isOpen)
+    const pageLoader = document.getElementById("pageLoader");
+
+    const hideLoader = () => {
+      if (pageLoader) {
+        pageLoader.classList.add("is-loaded");
+        pageLoader.setAttribute("aria-hidden", "true");
+      }
+    };
+
+    window.addEventListener("load", hideLoader, { once: true });
+
+    // Prevent the loader from remaining visible if a photo loads slowly.
+    window.setTimeout(hideLoader, 2500);
+
+    /* ---------- Copyright year ---------- */
+
+    const currentYear = document.getElementById("currentYear");
+
+    if (currentYear) {
+      currentYear.textContent = new Date().getFullYear();
+    }
+
+    /* ---------- Mobile navigation ---------- */
+
+    const menuToggle = document.getElementById("menuToggle");
+    const mainNavigation = document.getElementById("mainNavigation");
+
+    const closeMenu = () => {
+      if (!menuToggle || !mainNavigation) return;
+
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.setAttribute("aria-label", "Open navigation");
+      mainNavigation.classList.remove("nav-open");
+      body.classList.remove("menu-is-open");
+    };
+
+    if (menuToggle && mainNavigation) {
+      menuToggle.addEventListener("click", () => {
+        const isOpen =
+          menuToggle.getAttribute("aria-expanded") === "true";
+
+        menuToggle.setAttribute("aria-expanded", String(!isOpen));
+        menuToggle.setAttribute(
+          "aria-label",
+          isOpen ? "Open navigation" : "Close navigation"
+        );
+
+        mainNavigation.classList.toggle("nav-open", !isOpen);
+        body.classList.toggle("menu-is-open", !isOpen);
+      });
+
+      mainNavigation.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", closeMenu);
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") closeMenu();
+      });
+
+      document.addEventListener("click", (event) => {
+        if (
+          menuToggle.getAttribute("aria-expanded") === "true" &&
+          !mainNavigation.contains(event.target) &&
+          !menuToggle.contains(event.target)
+        ) {
+          closeMenu();
+        }
+      });
+
+      window.addEventListener("resize", () => {
+        if (window.innerWidth > 800) closeMenu();
+      });
+    }
+
+    /* ---------- Scroll reveal animations ---------- */
+
+    const revealElements = document.querySelectorAll(".reveal");
+
+    if ("IntersectionObserver" in window && !reducedMotion) {
+      const revealObserver = new IntersectionObserver(
+        (entries, observer) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          });
+        },
+        {
+          threshold: 0.08,
+          rootMargin: "0px 0px -35px 0px"
+        }
       );
 
-      mainNav.classList.toggle("nav-open", !isOpen);
-      document.body.classList.toggle("menu-open", !isOpen);
-    });
+      revealElements.forEach((element, index) => {
+        // Small stagger for grouped cards, without long delays.
+        if (element.matches(".collection-card, .gallery-tile")) {
+          element.style.transitionDelay = `${(index % 4) * 65}ms`;
+        }
 
-    mainNav.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", closeMenu);
-    });
-
-    document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape") closeMenu();
-    });
-
-    window.addEventListener("resize", () => {
-      if (window.innerWidth > 760) closeMenu();
-    });
-  }
-
-  // GALLERY LIGHTBOX
-  const lightbox = document.getElementById("lightbox");
-  const lightboxImage = document.getElementById("lightboxImage");
-  const lightboxCaption =
-    document.getElementById("lightboxCaption");
-  const lightboxClose =
-    document.getElementById("lightboxClose");
-  const lightboxPrev =
-    document.getElementById("lightboxPrev");
-  const lightboxNext =
-    document.getElementById("lightboxNext");
-
-  const galleryButtons = Array.from(
-    document.querySelectorAll(".gallery-tile")
-  );
-
-  let currentImageIndex = 0;
-  let lastFocusedElement = null;
-
-  function getGalleryImage(button) {
-    const image = button.querySelector("img");
-
-    return {
-      src:
-        button.dataset.fullImage ||
-        (image ? image.currentSrc || image.src : ""),
-      alt: image ? image.alt : "Mehndi design",
-      caption:
-        button.querySelector(".gallery-caption")?.textContent
-          .trim() || "Alankrita Mehndi Art",
-    };
-  }
-
-  function showGalleryImage(index) {
-    if (!galleryButtons.length || !lightboxImage) return;
-
-    currentImageIndex =
-      (index + galleryButtons.length) % galleryButtons.length;
-
-    const imageData = getGalleryImage(
-      galleryButtons[currentImageIndex]
-    );
-
-    lightboxImage.src = imageData.src;
-    lightboxImage.alt = imageData.alt;
-
-    if (lightboxCaption) {
-      lightboxCaption.textContent = imageData.caption;
-    }
-  }
-
-  function openLightbox(index, trigger) {
-    if (!lightbox || !lightboxImage) return;
-
-    lastFocusedElement = trigger;
-    showGalleryImage(index);
-
-    if (typeof lightbox.showModal === "function") {
-      if (!lightbox.open) lightbox.showModal();
+        revealObserver.observe(element);
+      });
     } else {
-      lightbox.setAttribute("open", "");
+      revealElements.forEach((element) => {
+        element.classList.add("is-visible");
+      });
     }
 
-    document.body.classList.add("lightbox-open");
+    /* ---------- Photo gallery data ---------- */
 
-    if (lightboxClose) lightboxClose.focus();
-  }
-
-  function closeLightbox() {
-    if (!lightbox) return;
-
-    if (typeof lightbox.close === "function" && lightbox.open) {
-      lightbox.close();
-    } else {
-      lightbox.removeAttribute("open");
-    }
-
-    document.body.classList.remove("lightbox-open");
-
-    if (lastFocusedElement) {
-      lastFocusedElement.focus();
-    }
-  }
-
-  galleryButtons.forEach((button, index) => {
-    button.addEventListener("click", () => {
-      openLightbox(index, button);
-    });
-  });
-
-  if (lightboxClose) {
-    lightboxClose.addEventListener("click", closeLightbox);
-  }
-
-  if (lightboxPrev) {
-    lightboxPrev.addEventListener("click", () => {
-      showGalleryImage(currentImageIndex - 1);
-    });
-  }
-
-  if (lightboxNext) {
-    lightboxNext.addEventListener("click", () => {
-      showGalleryImage(currentImageIndex + 1);
-    });
-  }
-
-  if (lightbox) {
-    lightbox.addEventListener("click", (event) => {
-      if (event.target === lightbox) {
-        closeLightbox();
-      }
-    });
-
-    lightbox.addEventListener("close", () => {
-      document.body.classList.remove("lightbox-open");
-    });
-
-    document.addEventListener("keydown", (event) => {
-      if (!lightbox.open) return;
-
-      if (event.key === "ArrowLeft") {
-        event.preventDefault();
-        showGalleryImage(currentImageIndex - 1);
-      }
-
-      if (event.key === "ArrowRight") {
-        event.preventDefault();
-        showGalleryImage(currentImageIndex + 1);
-      }
-    });
-  }
-
-  // SUBTLE SCROLL REVEALS
-  const revealElements = document.querySelectorAll(
-    ".section-heading, .value-item, .service-card, " +
-    ".gallery-tile, .experience-image, .experience-content, " +
-    ".faq details"
-  );
-
-  const reducedMotion = window.matchMedia(
-    "(prefers-reduced-motion: reduce)"
-  ).matches;
-
-  if ("IntersectionObserver" in window && !reducedMotion) {
-    revealElements.forEach((element) => {
-      element.classList.add("reveal");
-    });
-
-    const revealObserver = new IntersectionObserver(
-      (entries, observer) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("revealed");
-            observer.unobserve(entry.target);
-          }
-        });
+    const galleryData = {
+      premium: {
+        title: "Premium Bridal",
+        photos: [
+          "Premium.bridal.1.jpg",
+          "Premium.bridal.2.jpg",
+          "Premium.bridal.3.jpg",
+          "Premium.bridal.4.JPG"
+        ]
       },
-      {
-        threshold: 0.12,
-        rootMargin: "0px 0px -30px 0px",
+      bridal: {
+        title: "Bridal",
+        photos: [
+          "Bridal.1.JPG",
+          "Bridal.2.jpg",
+          "Bridal.3.jpg",
+          "Bridal.4.jpg"
+        ]
+      },
+      arabic: {
+        title: "Arabic",
+        photos: [
+          "Arabic.1.JPG",
+          "Arabic.2.JPG",
+          "Arabic.3.JPG",
+          "Arabic.4.JPG"
+        ]
+      },
+      indian: {
+        title: "Indian",
+        photos: [
+          "Indian.1.JPG",
+          "Indian.2.JPG",
+          "Indian.3.JPG",
+          "Indian.4.JPG"
+        ]
+      },
+      mandala: {
+        title: "Mandala",
+        photos: [
+          "Mandal.1.JPG",
+          "Mandal.2.JPG",
+          "Mandal.3.JPG",
+          "Mandal.4.JPG"
+        ]
       }
-    );
+    };
 
-    revealElements.forEach((element) => {
-      revealObserver.observe(element);
+    /* ---------- Full-screen gallery viewer ---------- */
+
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImage = document.getElementById("lightboxImage");
+    const lightboxCaption = document.getElementById("lightboxCaption");
+    const lightboxClose = document.getElementById("lightboxClose");
+    const lightboxPrev = document.getElementById("lightboxPrev");
+    const lightboxNext = document.getElementById("lightboxNext");
+
+    let activeGallery = null;
+    let activeIndex = 0;
+    let lastFocusedElement = null;
+
+    const getActivePhotos = () => {
+      if (!activeGallery || !galleryData[activeGallery]) return [];
+      return galleryData[activeGallery].photos;
+    };
+
+    const updateLightbox = () => {
+      if (!lightboxImage || !lightboxCaption) return;
+
+      const photos = getActivePhotos();
+      if (!photos.length) return;
+
+      activeIndex = (activeIndex + photos.length) % photos.length;
+
+      const gallery = galleryData[activeGallery];
+
+      lightboxImage.src = photos[activeIndex];
+      lightboxImage.alt =
+        `${gallery.title} mehndi design, photo ${activeIndex + 1}`;
+
+      lightboxCaption.textContent =
+        `${gallery.title} · ${String(activeIndex + 1).padStart(2, "0")} / ${String(photos.length).padStart(2, "0")}`;
+
+      if (lightboxPrev) {
+        lightboxPrev.disabled = photos.length < 2;
+      }
+
+      if (lightboxNext) {
+        lightboxNext.disabled = photos.length < 2;
+      }
+    };
+
+    const openLightbox = (galleryName, index, trigger) => {
+      if (!lightbox || !galleryData[galleryName]) return;
+
+      activeGallery = galleryName;
+      activeIndex = index;
+      lastFocusedElement = trigger;
+
+      updateLightbox();
+
+      if (typeof lightbox.showModal === "function") {
+        if (!lightbox.open) lightbox.showModal();
+      } else {
+        // Fallback for browsers without native dialog support.
+        lightbox.setAttribute("open", "");
+      }
+
+      body.classList.add("lightbox-is-open");
+
+      if (lightboxClose) lightboxClose.focus();
+    };
+
+    const closeLightbox = () => {
+      if (!lightbox) return;
+
+      if (typeof lightbox.close === "function" && lightbox.open) {
+        lightbox.close();
+      } else {
+        lightbox.removeAttribute("open");
+      }
+
+      body.classList.remove("lightbox-is-open");
+
+      if (lastFocusedElement) {
+        lastFocusedElement.focus({ preventScroll: true });
+      }
+    };
+
+    document.querySelectorAll(".gallery-tile[data-gallery]").forEach((tile) => {
+      tile.addEventListener("click", () => {
+        const galleryName = tile.dataset.gallery;
+        const index = Number.parseInt(tile.dataset.index, 10);
+
+        if (!Number.isInteger(index)) return;
+
+        openLightbox(galleryName, index, tile);
+      });
     });
-  }
 
-  // AUTOMATIC COPYRIGHT YEAR
-  const copyright = document.querySelector(".copyright");
+    if (lightboxClose) {
+      lightboxClose.addEventListener("click", closeLightbox);
+    }
 
-  if (copyright) {
-    copyright.innerHTML = copyright.innerHTML.replace(
-      /\b202\d\b/g,
-      String(new Date().getFullYear())
-    );
-  }
+    if (lightboxPrev) {
+      lightboxPrev.addEventListener("click", () => {
+        activeIndex -= 1;
+        updateLightbox();
+      });
+    }
 
-  // PREVENT EMPTY LINKS FROM JUMPING TO THE TOP
-  document.querySelectorAll('a[href="#"]').forEach((link) => {
-    link.addEventListener("click", (event) => {
-      event.preventDefault();
+    if (lightboxNext) {
+      lightboxNext.addEventListener("click", () => {
+        activeIndex += 1;
+        updateLightbox();
+      });
+    }
+
+    if (lightbox) {
+      lightbox.addEventListener("click", (event) => {
+        // Close when the backdrop itself is tapped.
+        if (event.target === lightbox) closeLightbox();
+      });
+
+      lightbox.addEventListener("close", () => {
+        body.classList.remove("lightbox-is-open");
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (!lightbox.open) return;
+
+        if (event.key === "ArrowRight") {
+          event.preventDefault();
+          activeIndex += 1;
+          updateLightbox();
+        }
+
+        if (event.key === "ArrowLeft") {
+          event.preventDefault();
+          activeIndex -= 1;
+          updateLightbox();
+        }
+      });
+    }
+
+    /* ---------- Gentle 3D hero movement ---------- */
+
+    const heroVisual = document.querySelector(".hero-visual");
+    const heroFrame = document.querySelector(".hero-frame-front");
+
+    const canUseFinePointer = window.matchMedia(
+      "(hover: hover) and (pointer: fine)"
+    ).matches;
+
+    if (
+      heroVisual &&
+      heroFrame &&
+      canUseFinePointer &&
+      !reducedMotion
+    ) {
+      let animationFrame = null;
+
+      heroVisual.addEventListener("pointermove", (event) => {
+        const bounds = heroVisual.getBoundingClientRect();
+
+        const x = (event.clientX - bounds.left) / bounds.width - 0.5;
+        const y = (event.clientY - bounds.top) / bounds.height - 0.5;
+
+        if (animationFrame) {
+          window.cancelAnimationFrame(animationFrame);
+        }
+
+        animationFrame = window.requestAnimationFrame(() => {
+          heroFrame.style.transform =
+            `rotateY(${x * 7}deg) rotateX(${-y * 6}deg) translateY(-3px)`;
+        });
+      });
+
+      heroVisual.addEventListener("pointerleave", () => {
+        if (animationFrame) {
+          window.cancelAnimationFrame(animationFrame);
+        }
+
+        heroFrame.style.transform = "";
+      });
+    }
+
+    /* ---------- Gentle collection card depth ---------- */
+
+    const collectionCards = document.querySelectorAll(".collection-card");
+
+    if (canUseFinePointer && !reducedMotion) {
+      collectionCards.forEach((card) => {
+        card.addEventListener("pointermove", (event) => {
+          const bounds = card.getBoundingClientRect();
+
+          const x = (event.clientX - bounds.left) / bounds.width - 0.5;
+          const y = (event.clientY - bounds.top) / bounds.height - 0.5;
+
+          card.style.transform =
+            `perspective(1000px) rotateX(${-y * 2}deg) rotateY(${x * 2}deg) translateY(-4px)`;
+        });
+
+        card.addEventListener("pointerleave", () => {
+          card.style.transform = "";
+        });
+      });
+    }
+
+    /* ---------- Smooth internal navigation ---------- */
+
+    document.querySelectorAll('a[href^="#"]').forEach((link) => {
+      link.addEventListener("click", (event) => {
+        const href = link.getAttribute("href");
+
+        if (!href || href === "#") return;
+
+        const target = document.querySelector(href);
+        if (!target) return;
+
+        event.preventDefault();
+
+        target.scrollIntoView({
+          behavior: reducedMotion ? "auto" : "smooth",
+          block: "start"
+        });
+
+        // Keep the URL useful without jumping the page.
+        if (window.history && window.history.replaceState) {
+          window.history.replaceState(null, "", href);
+        }
+      });
     });
+
+    /* ---------- Image fallback ---------- */
+
+    document.querySelectorAll("img").forEach((img) => {
+      img.addEventListener("error", () => {
+        // Keep the layout intact if a file is missing.
+        img.classList.add("image-load-error");
+      });
+    });
+
+    /* ---------- Optional decorative sparkle creation ---------- */
+
+    const hero = document.querySelector(".hero");
+
+    if (hero && !reducedMotion) {
+      const sparkleContainer = document.createElement("div");
+      sparkleContainer.className = "hero-sparkle-layer";
+      sparkleContainer.setAttribute("aria-hidden", "true");
+
+      for (let i = 0; i < 7; i += 1) {
+        const sparkle = document.createElement("span");
+        sparkle.className = "generated-sparkle";
+        sparkle.textContent = i % 2 === 0 ? "✧" : "·";
+        sparkle.style.setProperty("--sparkle-index", String(i));
+        sparkleContainer.appendChild(sparkle);
+      }
+
+      hero.appendChild(sparkleContainer);
+    }
+
+    console.info("Alankrita Mehndi Art: interactions initialized.");
   });
-
-  console.log("Alankrita Mehndi Art website is ready.");
-});
+})();
